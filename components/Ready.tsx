@@ -8,7 +8,7 @@ import { useScroll, useTransform, motion } from "framer-motion";
 
 export default function Ready() {
 	const container = useRef(null);
-	const phrase = ["Ready", "to start", "the project"];
+	const phrase = ["Let's Nuke", "", "your project!"];
 
 	const { scrollYProgress } = useScroll({
 		target: container,
@@ -18,11 +18,11 @@ export default function Ready() {
 
 	return (
 		<section
-			className="w-full text-white relative z-30 min-h-screen sm:h-screen xm:h-screen bg-slate-300 padding-y rounded-t-[20px] mt-[-20px]"
+			className="w-full text-white relative z-30 min-h-screen sm:h-screen xm:h-screen bg-black padding-y rounded-t-[20px] mt-[-20px]"
 			ref={container}>
 			<div className="w-full h-full flex justify-center gap-[50px] items-center flex-col">
 				<div className="flex flex-col gap-[10px]">
-					<h1 className="text-[290px] leading-[230px] lg:text-[220px] lg:leading-[170px] md:text-[180px] md:leading-[140px] sm:text-[120px] sm:leading-[90px] xm:text-[80px] xm:leading-[60px] tracking-[-2.5px] text-center font-bold font-FoundersGrotesk text-secondry uppercase pointer-events-none">
+					<h1 className="text-[300px] leading-[300px] lg:text-[220px] lg:leading-[170px] md:text-[180px] md:leading-[140px] sm:text-[120px] sm:leading-[90px] xm:text-[80px] xm:leading-[60px] tracking-[-2.5px] text-center font-bold font-FoundersGrotesk text-red-500 uppercase pointer-events-none">
 						<TextMask>{phrase}</TextMask>
 					</h1>
 				</div>
@@ -67,3 +67,4 @@ export default function Ready() {
 		</section>
 	);
 }
+

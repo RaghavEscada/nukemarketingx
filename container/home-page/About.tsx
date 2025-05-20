@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { Star, Instagram, Linkedin, MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
-import { TimelineDemo } from "@/data/data";
+import StyledSection from './page';
 
 const socialLinks = [
   { id: 1, title: "Instagram", href: "https://instagram.com", icon: <Instagram size={20} /> },
@@ -15,9 +15,9 @@ export default function About() {
     <section className="w-full bg-[#0A0A0A] text-white py-32 px-6 sm:px-4 rounded-t-[40px] z-20 relative rounded-xl overflow-hidden">
       {/* Background Grid */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px]" />
-      
+
       {/* Nuclear Pulse Effect */}
-      <motion.div 
+      <motion.div
         className="absolute inset-0 bg-[#FF4D4D]/5 rounded-full"
         animate={{
           scale: [1, 1.2, 1],
@@ -29,16 +29,16 @@ export default function About() {
           ease: "easeInOut"
         }}
       />
-      
+
       {/* Header Section */}
       <div className="text-center max-w-4xl mx-auto relative z-10 mb-32">
-        <motion.h2 
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="text-[5rem] font-black font-NeueMontreal leading-tight tracking-tight mb-12"
         >
-          <motion.span 
+          <motion.span
             className="text-[#FF4D4D] inline-block"
             animate={{
               scale: [1, 1.05, 1],
@@ -55,8 +55,8 @@ export default function About() {
             }}
           >
             Let's Nuke
-          </motion.span> Your Brand's  
-          <motion.span 
+          </motion.span> Your Brand's
+          <motion.span
             className="text-[#4ECDC4] inline-block"
             animate={{
               scale: [1, 1.05, 1],
@@ -78,29 +78,31 @@ export default function About() {
           <br />
           <span className="text-white">Detonating Success</span>
         </motion.h2>
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-gray-300 text-xl font-light max-w-2xl mx-auto leading-relaxed"
         >
-          We're not just another marketing squad. We're the strategic force that  
+          We're not just another marketing squad. We're the strategic force that
           makes your brand explode in the digital space. Time to go nuclear! 💥
         </motion.p>
       </div>
+
+
 
       {/* Main Content */}
       <div className="w-full max-w-6xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24">
           {/* Left Section */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             className="space-y-12"
           >
             <div className="relative" style={{ width: '600px', height: '400px' }}>
-              <video 
+              <video
                 src="/nuke.mp4"
 
                 autoPlay
@@ -110,7 +112,7 @@ export default function About() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
               {/* Nuclear Glow Effect */}
-              <motion.div 
+              <motion.div
                 className="absolute inset-0 bg-[#FF4D4D]/10"
                 animate={{
                   opacity: [0.1, 0.2, 0.1],
@@ -127,14 +129,14 @@ export default function About() {
           {/* Right Section */}
           <div className="space-y-16">
             {/* Strategy Points */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               className="space-y-12"
             >
               {/* Strategy Point 1 */}
-              <motion.div 
+              <motion.div
                 className="flex items-start gap-8"
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300 }}
@@ -162,7 +164,7 @@ export default function About() {
               </motion.div>
 
               {/* Strategy Point 2 */}
-              <motion.div 
+              <motion.div
                 className="flex items-start gap-8"
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300 }}
@@ -191,22 +193,24 @@ export default function About() {
               </motion.div>
             </motion.div>
 
+
+
             {/* Social Links */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="pt-8 border-t border-white/10"
+              className="pt-8 pb-10 border-t border-white/10"
             >
               <h1 className="text-2xl font-bold text-white font-NeueMontreal mb-8">
                 Ready to Launch Your Brand?
               </h1>
               <div className="flex gap-8">
                 {socialLinks.map((item) => (
-                  <motion.a 
-                    key={item.id} 
-                    href={item.href} 
-                    target="_blank" 
+                  <motion.a
+                    key={item.id}
+                    href={item.href}
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="group flex items-center gap-3 text-lg text-gray-400 hover:text-[#4ECDC4] transition-all duration-300"
                     whileHover={{ scale: 1.1 }}
@@ -221,10 +225,13 @@ export default function About() {
           </div>
         </div>
       </div>
-
-      {/* Timeline Section */}
-     
+      <div>
       
+      <StyledSection />
+     
+    </div>
+
     </section>
   );
 }
+

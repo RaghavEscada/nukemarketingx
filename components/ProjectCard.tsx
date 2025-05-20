@@ -32,7 +32,7 @@ export default function ProjectCard({ item }: { item: any }) {
 								duration: 0.5,
 								ease: [0.4, 0, 0.2, 1],
 							}}
-							className="text-[165px] leading-none inline-block uppercase font-FoundersGrotesk text-about font-bold text-center pointer-events-none"
+							className="text-[165px] leading-none inline-block uppercase font-FoundersGrotesk text-red-500 font-bold text-center pointer-events-none"
 							key={i}>
 							{item}
 						</motion.span>

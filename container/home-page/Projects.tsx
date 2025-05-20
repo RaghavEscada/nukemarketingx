@@ -5,7 +5,7 @@ import { FeaturesSectionDemo } from "@/components/ui/bentogrid";
 
 export default function Projects() {
 	return (
-		<section className="w-full rounded-t-[20px]">
+		<section className="w-full text-center rounded-t-[20px]">
 			{/* Heading */}
 			<Heading
 				title="Featured projects"

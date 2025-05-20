@@ -1,15 +1,9 @@
 "use client";
-import { useEffect } from "react";
 import { Curve, Marquee, Ready } from "@/components";
-import { About, Clients, Hero, Projects, VideoHome } from "@/container";
+import { About, Clients, Hero, Projects, VideoHome, X } from "@/container";
 
 export default function Home() {
-	useEffect(() => {
-		(async () => {
-			const LocomotiveScroll = (await import("locomotive-scroll")).default;
-			const locomotiveScroll = new LocomotiveScroll();
-		})();
-	}, []);
+	
 
 	return (
 		<>
@@ -22,6 +16,7 @@ export default function Home() {
 					/>
 				</div>
 				<About />
+				<X />
 				<VideoHome />
 				<Projects />
 				<Clients />
