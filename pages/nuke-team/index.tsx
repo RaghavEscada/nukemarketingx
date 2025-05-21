@@ -4,6 +4,10 @@ import { ChevronLeft, ChevronRight, ChevronDown } from "lucide-react";
 import { Curve } from "@/components";
 import { LampDemoTeam } from "@/data/data";
 import Spline from "@splinetool/react-spline";
+import Image from "next/image"; // Add this import
+
+// Create a motion-wrapped Image component for animations
+const MotionImage = motion(Image);
 
 const teamMembers = [
   {
@@ -71,9 +75,11 @@ export default function MeetOurTeam() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <motion.img 
+              <MotionImage 
                 src="/nuke.png" 
                 alt="nuke"
+                width={112} // h-28 = 7rem = 112px
+                height={112} // Using square dimensions, adjust if needed
                 className="h-28 w-auto object-contain mb-8"
                 animate={{ 
                   scale: [1, 1.05, 1],
@@ -113,9 +119,11 @@ export default function MeetOurTeam() {
         
         {/* Full-width black footer with centered logo */}
         <div className="absolute bottom-0 left-0 w-full h-24 bg-black z-10 flex justify-center items-center rounded-t-3xl">
-          <img 
+          <Image 
             src="/nuke.png" 
             alt="nuke" 
+            width={64} // h-16 = 4rem = 64px
+            height={64} // Adjust height as needed
             className="h-16 w-auto object-contain"
           />
         </div>
@@ -166,10 +174,13 @@ export default function MeetOurTeam() {
                 }}
                 transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
               />
-              <motion.img
+              <MotionImage
                 src={teamMembers[index].image}
                 alt={teamMembers[index].name}
+                width={320} // lg:w-80 = 20rem = 320px
+                height={320} // lg:h-80 = 20rem = 320px
                 className="relative w-52 h-52 sm:w-60 sm:h-60 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-3xl object-cover shadow-md border border-white mb-12"
+                style={{ objectFit: "cover" }} // Replace object-cover class
                 whileHover={{ scale: 1.03, transition: { duration: 0.4 } }}
                 animate={{ boxShadow: ["0 4px 12px rgba(0,0,0,0.1)", "0 6px 16px rgba(0,0,0,0.2)", "0 4px 12px rgba(0,0,0,0.1)"] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}

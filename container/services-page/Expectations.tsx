@@ -3,7 +3,14 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const services = [
+interface Service {
+  id: number;
+  title: string;
+  description: string;
+  icon: string;
+}
+
+const services: Service[] = [
   {
     id: 1,
     title: "Digital Marketing",
@@ -49,12 +56,14 @@ const services = [
 ];
 
 export default function InfiniteScrollServices() {
-  const [activeService, setActiveService] = useState(null);
+  // Fix the type of activeService state to be number | null
+  const [activeService, setActiveService] = useState<number | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  const openModal = (id) => {
+  // Fix the type definition for the openModal function
+  const openModal = (id: number) => {
     setActiveService(id);
     setIsModalOpen(true);
     document.body.style.overflow = "hidden";
@@ -119,7 +128,7 @@ export default function InfiniteScrollServices() {
               animationIterationCount: 'infinite'
             }}
           >
-            {duplicatedServices.reverse().map((service, index) => (
+            {[...duplicatedServices].reverse().map((service, index) => (
               <div
                 key={`track2-${service.id}-${index}`}
                 className="flex-shrink-0 w-[280px] border border-white/10 rounded-lg p-6 hover:border-white/40 transition-all cursor-pointer"
