@@ -10,6 +10,68 @@ const socialLinks = [
   { id: 3, title: "WhatsApp", href: "https://wa.me/yourphonenumber", icon: <MessageCircle size={20} /> },
 ];
 
+const logos = [
+  {
+    name: "Babel",
+    url: "https://svgl.app/library/babel.svg",
+  },
+  {
+    name: "Ngrok",
+    url: "https://svgl.app/library/ngrok-light.svg",
+  },
+  {
+    name: "Webflow",
+    url: "https://svgl.app/library/webflow.svg",
+  },
+  {
+    name: "Perplexity",
+    url: "https://svgl.app/library/perplexity_wordmark_light.svg",
+  },
+  {
+    name: "Sanity",
+    url: "https://svgl.app/library/sanity.svg",
+  },
+  {
+    name: "Post CSS",
+    url: "https://svgl.app/library/postcss_wordmark.svg",
+  },
+];
+
+const LogoCloud = () => {
+  return (
+    <div className="w-full py-12">
+      <div className="mx-auto w-full px-2 md:px-4">
+        <div
+          className="group relative mt-6 flex gap-6 overflow-hidden p-2"
+          style={{
+            maskImage:
+              "linear-gradient(to left, transparent 0%, black 20%, black 80%, transparent 95%)",
+          }}
+        >
+          {Array(5)
+            .fill(null)
+            .map((index) => (
+              <div
+                key={index}
+                className="flex shrink-0 animate-logo-cloud flex-row justify-around gap-6"
+              >
+                {logos.map((logo, key) => (
+                  <img
+                    key={key}
+                    src={logo.url}
+                    className="h-30 w-32 px-2"
+                    alt={logo.name}
+                  />
+                ))}
+              </div>
+            ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+
 export default function About() {
   return (
     <section className="w-full bg-[#0A0A0A] text-white py-32 px-6 sm:px-4 rounded-t-[40px] z-20 relative rounded-xl overflow-hidden">
@@ -226,10 +288,13 @@ export default function About() {
         </div>
       </div>
       <div>
+      <LogoCloud />
       
       <StyledSection />
      
     </div>
+
+   
 
     </section>
   );

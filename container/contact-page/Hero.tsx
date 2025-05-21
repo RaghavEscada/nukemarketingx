@@ -7,31 +7,7 @@ export default function Hero() {
   return (
     <>
       {/* Full-screen Spline section */}
-      <section className="w-full h-screen relative">
-        <div className="absolute inset-0 w-full h-full">
-          <Spline
-            scene="https://prod.spline.design/1ZJWRRCR1XFnPDVn/scene.splinecode"
-            className="w-full h-full"
-          />
-        </div>
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
-          <motion.div
-            initial={{ y: -10, opacity: 0 }}
-            animate={{ y: 10, opacity: 1 }}
-            transition={{ 
-              repeat: Infinity, 
-              repeatType: "reverse", 
-              duration: 1.5 
-            }}
-            className="flex flex-col items-center"
-          >
-            <span className="text-lg font-medium">Scroll Down</span>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 5L12 19M12 19L19 12M12 19L5 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </motion.div>
-        </div>
-      </section>
+     
 
       {/* Content section that appears after scrolling */}
       <section className="w-full padding-x">

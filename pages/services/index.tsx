@@ -1,12 +1,15 @@
 "use client";
 import {
-  Capibilyties,
+  Archive,
+
+  Expectations,
+
   
 } from "@/container";
 import { useEffect, useRef } from "react";
 import { Curve, Ready } from "@/components";
-import { AnimatedTestimonialsDemo } from "@/data/data";
 import { LampDemoServ } from "@/data/data";
+import Capibilyties from "@/container/services-page/Capibilyties";
 
 
 
@@ -39,14 +42,24 @@ export default function Services() {
           
       
         <div className="mb-20">
+
+         
+
+        <Expectations/>
+
     
-          <Capibilyties />
+    
         </div>
+        <Archive />
+
+        <Capibilyties/>
+  
         <div className="mb-20">
-          <AnimatedTestimonialsDemo />
+          
         </div>
-        
-          <Ready />
+        <Ready />
+
+
        
       </Curve>
     </>

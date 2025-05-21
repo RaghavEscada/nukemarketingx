@@ -1244,104 +1244,83 @@ export const aboutPartberItems = [
 
 export const FaqItems = [
    {
-      id: 1,
-      question: "How do you approach brand strategy?",
-      title: "Description",
-      description: "We take a deep dive into your brand’s vision, values, and target audience to craft a strategic roadmap. Our process ensures a strong brand identity that resonates with your audience and drives long-term success.",
-      links: [
-         {
-            id: 1,
-            title: 1,
-            description: "We conduct market research, competitive analysis, and brand positioning to ensure your brand stands out."
-         },
-         {
-            id: 2,
-            title: 2,
-            description: "Our team works collaboratively to align your branding with business goals and customer expectations."
-         },
-      ],
-      button: "read"
+       id: 1,
+       question: "Can we expect a ROI?",
+       title: "Description",
+       description: "Yes, our branding strategies are designed to deliver measurable returns on investment. We track key performance indicators and provide regular reports to demonstrate how our services translate into business growth.",
+       links: [
+           {
+               id: 1,
+               title: 1,
+               description: "Our clients typically see increased engagement and conversion rates within the first 3-6 months."
+           },
+           {
+               id: 2,
+               title: 2,
+               description: "We provide detailed analytics and reporting to track your brand's performance and ROI metrics."
+           },
+       ],
+       button: "read"
    },
    {
-      id: 2,
-      question: "Do you offer logo and visual identity design?",
-      title: "Description",
-      description: "Yes! A brand’s visual identity is crucial for recognition and consistency. We craft logos, typography, color palettes, and other design assets to build a cohesive and memorable brand image.",
-      links: [
-         {
-            id: 1,
-            title: 1,
-            description: "Our design team ensures every visual element aligns with your brand’s story and values."
-         },
-      ],
-      button: "read"
+       id: 2,
+       question: "How long will it take to go from zero to hero?",
+       title: "Description",
+       description: "The timeline varies based on your starting point and goals, but we typically see significant brand transformation within 3-6 months. Our structured approach ensures steady progress while allowing for the natural evolution of your brand identity.",
+       links: [
+           {
+               id: 1,
+               title: 1,
+               description: "We create a customized roadmap with clear milestones to track your brand's development journey."
+           },
+       ],
+       button: "read"
    },
    {
-      id: 3,
-      question: "Do you collaborate with other creative agencies?",
-      title: "Description",
-      description: "Absolutely! We partner with specialists in web design, animation, content creation, and other fields to deliver comprehensive branding solutions. Our goal is to provide top-tier work that enhances your brand."
-      ,
-      links: [
-         {
-            id: 1,
-            title: 1,
-            description: "Collaboration allows us to push creative boundaries and bring innovative branding ideas to life."
-         },
-      ],
-      button: "read"
+       id: 3,
+       question: "What guarantee will you give?",
+       title: "Description",
+       description: "We guarantee our commitment to excellence and client satisfaction. While specific outcomes depend on various factors, we promise transparent communication, high-quality deliverables, and a dedicated approach to achieving your branding goals.",
+       links: [
+           {
+               id: 1,
+               title: 1,
+               description: "If you're not satisfied with our work, we offer revision rounds until you're completely happy with the results."
+           },
+       ],
+       button: "read"
    },
    {
-      id: 4,
-      question: "Are you hiring creative professionals?",
-      title: "Description",
-      description: "Yes! We’re always on the lookout for talented designers, strategists, and marketers to join our team. If you’re passionate about branding and storytelling, we’d love to hear from you!",
-      links: [
-         {
-            id: 1,
-            title: 1,
-            description: "Send your portfolio and CV to careers@brandagency.com with ‘Creative Talent’ in the subject line."
-         },
-         {
-            id: 2,
-            title: 2,
-            description: "If you have expertise in marketing, strategy, or business development, reach out to us at hr@brandagency.com."
-         },
-      ],
-      button: "read"
+       id: 4,
+       question: "I want to start, but I am not sure about the niche?",
+       title: "Description",
+       description: "Don't worry! Part of our process includes niche exploration and market analysis. We'll help you identify the most promising niches for your brand based on your strengths, interests, and market opportunities.",
+       links: [
+           {
+               id: 1,
+               title: 1,
+               description: "Our discovery workshops are designed to uncover your unique value proposition and ideal target audience."
+           },
+           {
+               id: 2,
+               title: 2,
+               description: "We conduct market research to identify gaps and opportunities where your brand can thrive."
+           },
+       ],
+       button: "read"
    },
    {
-      id: 5,
-      question: "Do you offer brand workshops or training?",
-      title: "Description",
-      description: "Yes, we conduct branding workshops and training sessions for teams and organizations. Our goal is to educate businesses on effective branding strategies that drive growth and engagement.",
-      links: [
-         {
-            id: 1,
-            title: 1,
-            description: "Workshops include brand positioning, storytelling, and visual identity creation."
-         },
-         {
-            id: 2,
-            title: 2,
-            description: "We also offer one-on-one brand consultations tailored to your specific needs."
-         },
-      ],
-      button: "read"
-   },
-   {
-      id: 6,
-      question: "Would you be open to podcast or video collaborations?",
-      title: "Description",
-      description: "Definitely! We love sharing our branding insights through podcasts and video content. If you have an audience interested in branding, design, or marketing, let’s collaborate!",
-      links: [
-         {
-            id: 1,
-            title: 1,
-            description: "Reach out with your proposal at media@brandagency.com with ‘Podcast/Video Proposal’ in the subject."
-         },
-      ],
-      button: "read"
+       id: 5,
+       question: "Do you offer ongoing brand support and maintenance?",
+       title: "Description",
+       description: "Yes, we provide continuous brand support to ensure long-term success. Our maintenance packages include regular check-ins, performance reviews, and adjustments to keep your brand relevant and effective.",
+       links: [
+           {
+               id: 1,
+               title: 1,
+               description: "Our support includes brand monitoring and quick responses to market changes or new opportunities."
+           },
+       ],
+       button: "read"
    },
 ];
-

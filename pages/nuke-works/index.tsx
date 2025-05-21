@@ -1,33 +1,31 @@
 import { useEffect, useRef } from "react";
 import { Curve, Ready } from "@/components";
-import { Projectspresentation } from "@/container";
+import { Hero, Projectspresentation } from "@/container";
 import { LampDemoCraft } from "@/data/data";
 
 export default function Presentation() {
+
   const containerRef = useRef(null);
 
   useEffect(() => {
+    // If you still want to manually initialize Locomotive Scroll
+    // (though using LocomotiveScrollProvider is recommended)
     (async () => {
       const LocomotiveScroll = (await import("locomotive-scroll")).default;
-      if (containerRef.current) {
-        const locomotiveScroll = new LocomotiveScroll({
-        
-          // Add other options as needed
-        });
-        // Optionally, you can destroy the instance when the component unmounts
-        return () => {
-          locomotiveScroll.destroy();
-        };
-      } else {
-        console.error("Container element not found.");
-      }
+      const locomotiveScroll = new LocomotiveScroll({
+       
+      });
+      // Optionally, you can destroy the instance when the component unmounts
+      return () => {
+        locomotiveScroll.destroy();
+      };
     })();
   }, []);
-
   return (
     <>
       <div data-scroll-container ref={containerRef}>
         <Curve backgroundColor={"#f1f1f1"}>
+        
           <LampDemoCraft />
           <Projectspresentation />
           <Ready />

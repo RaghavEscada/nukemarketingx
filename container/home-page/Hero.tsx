@@ -1,5 +1,5 @@
 "use client";
-import { WavyBackgroundDemo } from "@/data/data";
+import MacbookScrollDemo, { WavyBackgroundDemo } from "@/data/data";
 import Link from "next/link";
 import { MousePointer } from "lucide-react";
 import { useEffect } from "react";
@@ -387,6 +387,8 @@ export default function Hero() {
           </div>
         </div>
 
+      
+
         {/* Creative agency main content without animations */}
         <div className="w-full flex flex-col items-center justify-center min-h-[50vh] padding-x z-10 relative">
           {/* Static headlines instead of animated ones */}
@@ -468,7 +470,7 @@ export default function Hero() {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          background-color: #333;
+          background-color: #fff;
         }
 
         .orchestra-section .sticky {
@@ -730,7 +732,9 @@ export default function Hero() {
 
           <div className="header-1">
             <h1>
-              The first media company crafted for the digital first generation.
+            Your brand deserves a strategy that pulls in leads and sales like a magnet and makes engagement explode.💥
+
+
             </h1>
           </div>
 

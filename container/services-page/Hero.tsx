@@ -1,82 +1,90 @@
+"use client";
+import Link from "next/link";
+import Image from "next/image";
+
+import { Eyes } from "@/components";
+import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
+
+
 export default function Hero() {
 	return (
 		<section className="w-full min-h-screen">
 			<div className="w-full flex flex-col justify-between">
-			<div className="w-full flex flex-col items-center justify-center bg-black">
-				<div
-					data-scroll
-					data-scroll-speed="-.2"
-					className="bg-black w-[75%] py-[20px] rounded-t-[10px]	"
-				/>
-				<div
-					className="bg-red-500 relative z-20 w-[90%] py-[20px] rounded-t-[10px]"
-					data-scroll
-					data-scroll-speed="-.1"
-				/>
-			</div>
 				<div className="w-full flex flex-col">
 					<div className="w-full margin padding-x">
 						<div>
 							<h1 className="heading tracking-[-1.3px] text-[#212121] font-semibold font-FoundersGrotesk uppercase">
-								services
+								WE ARE <br />
+								<div className="flex items-center gap-[5px]">
+									<motion.span
+										initial={{ width: 0 }}
+										animate={{ width: "auto" }}
+										transition={{
+											ease: [0.86, 0, 0.07, 0.995],
+											duration: 1,
+											delay: 1.5,
+										}}>
+										<Image
+											width={120}
+											height={50}
+											src="/nuke.png"
+											alt="img"
+											className="w-auto h-[95px] lg:w-auto lg:h-auto md:w-[100px] md:h-[63px] sm:w-[74px] sm:h-[45px] xm:w-[64px] xm:h-[40px] object-cover xl:mt-[15px] mt-[10px] rounded-[10px]"
+										/>
+									</motion.span>
+									<h1 className="heading tracking-[-1.3px] text-[#212121] font-semibold font-FoundersGrotesk uppercase">
+										Nuke Marketing.
+									</h1>
+								</div>
 							</h1>
 						</div>
 					</div>
-					<div className="w-full border-t border-[#21212155]">
-						
-					</div>
-					<div className="w-full flex border-t border-[#21212155] py-[20px] flex-col">
-						<div className="w-full flex justify-between sm:flex-col xm:flex-col padding-x sm:gap-[20px] xm:gap-[20px]">
-							<div className="w-[50%] sm:w-full xm:w-full">
-								<p className="paragraph font-NeueMontreal text-secondry">
-									We do this by following <br /> simple approach:
-								</p>
+					
+					<div className="w-full border-t border-[#21212155] pt-[20px]">
+						<div className="w-full flex justify-between padding-x sm:flex-col xm:flex-col gap-[20px]">
+							<div className="w-[10%] sm:w-full xm:w-full">
+								<h3 className="paragraph font-medium text-secondry font-NeueMontreal">
+									About us:
+								</h3>
 							</div>
-							<div className="w-[50%] sm:w-full xm:w-full flex justify-between sm:flex-col xm:flex-col gap-[20px]	">
-								<div className="w-[50%] sm:w-full xm:w-full flex flex-col gap-[20px]">
-									<div className="flex flex-col gap-[20px]">
-										<p className="paragraph font-NeueMontreal text-secondry underline">
-											Goal defines it all
-										</p>
+							<div className="w-[48%] flex justify-between sm:w-full xm:w-full sm:flex-col xm:flex-col gap-[20px]">
+								<div className="w-[50%] flex flex-col gap-y-[40px] sm:w-full xm:w-full">
+									<div className="flex flex-col gap-y-[20px]">
 										<p className="paragraph font-NeueMontreal text-secondry">
-											What do you want to achieve?
-											<br className="sm:hidden xm:hidden" /> Understanding the
-											purpose of your <br className="sm:hidden xm:hidden" />
-											web content allows us to tailor it to ensure it
-											<br className="sm:hidden xm:hidden" /> hits the mark and
-											drives results.
+											Nuke Marketing, we craft bombing converting 
+											<br /> social media content.
+											<br />
+											Almost everything that needs to be
+											<br /> communicated is better shown than <br />
+											explained.
 										</p>
 									</div>
-									<div className="flex flex-col gap-[20px]">
-										<p className="paragraph font-NeueMontreal text-secondry underline">
-											Audience is the hero
-										</p>
+									<div className="flex flex-col gap-y-[20px]">
 										<p className="paragraph font-NeueMontreal text-secondry">
-											Who is it for? What do they want? Why
-											<br className="sm:hidden xm:hidden" /> does it matter to
-											them? We need to know
-											<br className="sm:hidden xm:hidden" /> your audience well
-											enough to deliver a <br className="sm:hidden xm:hidden" />
-											personalized social media content that they truly
-											<br className="sm:hidden xm:hidden" />
-											care about.
+											We believe a great social media content evokes
+											<br />
+											interest and drives business results far
+											<br /> better than any saying can. Hence, we
+											<br />
+											<br/> Prabha & Swetha
+											founded Nuke Marketing to help you persuade
+											<br /> colleagues and clients by creating extravagant
+											and engaging social media content and web presence.
 										</p>
 									</div>
 								</div>
-								<div className="w-[50%] sm:w-full xm:w-full">
-									<div className="flex flex-col gap-[20px]">
-										<p className="paragraph font-NeueMontreal text-secondry underline">
-											Context makes a difference
-										</p>
-										<p className="paragraph font-NeueMontreal text-secondry">
-											When do you present? Online or live? At a
-											<br className="sm:hidden xm:hidden" />
-											sales meeting, at a conference, or just
-											<br className="sm:hidden xm:hidden" /> sending a cold
-											email? We knit the context
-											<br className="sm:hidden xm:hidden" /> together to decide
-											the style of the
-											<br className="sm:hidden xm:hidden" /> internet content.
+								<div className="flex w-fit h-fit gap-[5px] group">
+									<div className="rounded-[50px] border border-[#21212199] group-hover:bg-secondry  py-[3px] px-[12px] cursor-pointer">
+										<Link
+											href="/case"
+											className="paragraph font-NeueMontreal text-secondry uppercase group-hover:text-background transition-all duration-200 ease-in">
+											Our Work
+										</Link>
+									</div>
+									<div className="w-[35px] flex items-center justify-center h-[35px] border border-[#21212199] rounded-[50px] p-[12px]  group-hover:bg-secondry transition-all duration-200 ease-in cursor-pointer sm:hidden xm:hidden">
+										<p className="paragraph font-normal text-secondry group-hover:text-background">
+											<ArrowUpRight strokeWidth={1.25} />
 										</p>
 									</div>
 								</div>
@@ -84,6 +92,18 @@ export default function Hero() {
 						</div>
 					</div>
 				</div>
+			</div>
+			<div
+				className="padding-y"
+				data-scroll
+				data-scroll-speed="-.1">
+				<Eyes className="w-[300px] h-[300px] md:w-[200px] md:h-[200px] sm:w-[150px] sm:h-[150px] xm:w-[150px] xm:h-[150px] sm:flex-col xm:flex-col" />
+			</div>
+			<div className="padding-x">
+				<h1 className="sub-heading font-medium font-NeueMontreal text-secondry">
+					We save businesses from low engagement and
+					<br className="sm:hidden xm:hidden" /> ineffective internet presence.
+				</h1>
 			</div>
 		</section>
 	);
