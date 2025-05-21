@@ -1,14 +1,9 @@
 "use client";
-import { useEffect } from "react";
+
 import { Curve } from "@/components";
 
 export default function ContactPage() {
-    useEffect(() => {
-        document.body.style.overflow = "hidden";
-        return () => {
-            document.body.style.overflow = "auto";
-        };
-    }, []);
+   
 
 
     return (
