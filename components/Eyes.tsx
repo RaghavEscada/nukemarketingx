@@ -3,10 +3,13 @@ import Image from "next/image";
 import { eyes } from "@/public";
 import React, { useEffect, useState } from "react";
 
+const ROTATION_OFFSET = 280; // Offset to align the eye image correctly
+
 export default function Eyes({ className }: { className: string }) {
 	const [rotate, setRotate] = useState(0);
+	
 	useEffect(() => {
-		window.addEventListener("mousemove", (e) => {
+		const handleMouseMove = (e: MouseEvent) => {
 			const mouseX = e.clientX;
 			const mouseY = e.clientY;
 
@@ -14,8 +17,15 @@ export default function Eyes({ className }: { className: string }) {
 			const deltaY = mouseY - window.innerHeight / 2;
 
 			const angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
-			setRotate(angle - 280);
-		});
+			setRotate(angle - ROTATION_OFFSET);
+		};
+
+		window.addEventListener("mousemove", handleMouseMove);
+		
+		// Cleanup function to remove event listener
+		return () => {
+			window.removeEventListener("mousemove", handleMouseMove);
+		};
 	}, []);
 
 	return (

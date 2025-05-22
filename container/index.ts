@@ -28,7 +28,6 @@ export { default as Principles } from './about-page/Principles';
 export { default as Partners } from './about-page/Partners';
 export { default as Insights } from './about-page/Insights';
 
-// insights page
 
 
 // contact page
@@ -36,4 +35,4 @@ export { default as Herocontact } from './contact-page/Hero';
 export { default as Form } from './contact-page/Form';
 export { default as FAQ } from './contact-page/Faq';
 export { default as Socials } from './contact-page/Socials';
-// workiz page
+
