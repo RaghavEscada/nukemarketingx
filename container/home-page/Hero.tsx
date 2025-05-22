@@ -358,16 +358,8 @@ export default function Hero() {
     // Cleanup function
     return () => {
       // Clean up any event listeners or animations
-      if (typeof window !== 'undefined') {
-        const tickerFunction = (time: number) => {
-          (window as any).Lenis?.raf(time * 1000);
-        };
-        window.gsap?.ticker.remove(tickerFunction);
-        (window as any).ScrollTrigger?.getAll().forEach((trigger: any) => trigger.kill());
-        (window as any).Lenis?.destroy();
-      }
     };
-  }, []); // Empty dependency array since we only want this to run once on mount
+  }, []);
 
   return (
     <>
