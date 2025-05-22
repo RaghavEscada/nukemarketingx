@@ -717,7 +717,6 @@ export default function About() {
           </div>
         </div>
 
-        <LogoCloud />
       </section>
     </div>
   );
