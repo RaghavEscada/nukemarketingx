@@ -118,7 +118,7 @@ export default function MeetOurTeam() {
           Meet Our Team
         </h1>
         <p className="text-xl text-gray-600 font-light italic">
-          "Elevating moments into masterpieces, simplicity into significance"
+          &quot;Elevating moments into masterpieces, simplicity into significance&quot;
         </p>
       </div>
 
