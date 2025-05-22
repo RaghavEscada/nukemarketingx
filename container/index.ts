@@ -23,10 +23,10 @@ export { default as Publication } from './presentation-page/Publication';
 // aboute page
 export { default as Heroabout } from './about-page/Hero';
 export { default as Aboutabout } from './about-page/About';
-export { default as Team } from './about-page/Team';
-export { default as Principles } from './about-page/Principles';
-export { default as Partners } from './about-page/Partners';
-export { default as Insights } from './about-page/Insights';
+
+
+
+
 
 
 

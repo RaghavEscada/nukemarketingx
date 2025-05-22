@@ -1,4 +1,4 @@
-import { capaybilities1, capaybilities2, capaybilities3, capaybilities4, client01, client02, client03, client04, client05, client06, client07, client08, client09, insights1, insights2, insights3, latest1, latest2, nestle, officevibe, phase1, phase2, phase3, phase4, phase5, planetly, project1, project2, project3, project4, project5, project6, project7, project8, project9, publication1, publication2, publication3 } from "@/public";
+import { project1, project2, project3 } from "@/public";
 
 
 // Navbar
@@ -103,7 +103,7 @@ export const clientsItem = [
       href: "https://www.tatainnovations.com",
       title: "Services:",
       name: "Rahul Sharma",
-      src: client01,
+ 
       review: "They were transparent about the timeline and project phases. The end product exceeds expectations, and I appreciate how they guided us through the entire process. I can confidently refer them to anyone wanting to establish a strong digital presence from scratch. Their expertise in both strategy and execution delivered excellent results from start to finish. 5/5",
       links: [
          {
@@ -124,7 +124,7 @@ export const clientsItem = [
       href: "https://www.ecoindia.com",
       title: "Services:",
       name: "Priya Patel",
-      src: client02,
+
       review: "Their team approached our projects with exceptional professionalism and creativity. They truly understood our brand values and translated them into compelling digital content. The process was seamless and effective, which is why we've expanded our partnership to include all our digital marketing needs. Their understanding, professionalism, and creativity have secured a long-term collaboration.",
       links: [
          {
@@ -160,7 +160,7 @@ export const clientsItem = [
       href: "https://www.swadeshicrafts.in",
       title: "Services:",
       name: "Vikram Singh",
-      src: client03,
+
       review: "They brought a professional dimension to our digital presence that we were lacking before. When I showed our management team the website and social media strategy they developed, they were amazed — the final product perfectly aligned with our vision to create an authentic connection with our customers and expand our reach.",
       links: [
          {
@@ -191,7 +191,7 @@ export const clientsItem = [
       href: "https://www.mumbaieats.co.in",
       title: "Services:",
       name: "Ananya Desai",
-      src: client04,
+
       review: "They are truly revolutionizing digital marketing for small businesses in India! Fast, effective, and friendly professionals who paid attention to every detail of our requirements. Their content creation brings so much authenticity and engagement. We proudly showcase their work across all our digital platforms.",
       links: [
          {
@@ -212,7 +212,7 @@ export const clientsItem = [
       href: "https://www.bharattech.co.in",
       title: "Services:",
       name: "Arjun Kapoor",
-      src: client05,
+   
       review: "The service we received was absolutely first-class. Their meticulous attention to detail and strategic thinking in terms of narrative, user experience, and visual aesthetics completely exceeded our expectations. We especially appreciated their creation of authentic visual content that resonates with our Indian audience while maintaining a global appeal. We will definitely continue our partnership. I cannot recommend them highly enough.",
       links: [
          {
@@ -233,7 +233,7 @@ export const clientsItem = [
       href: "https://www.yogawellness.in",
       title: "Services:",
       name: "Sunita Agarwal",
-      src: client06,
+
       review: "They have an impressive understanding of what's needed for effective digital presence. Our stakeholders said it's the most comprehensive digital strategy they've ever seen. They delivered more than I was expecting, and we were really impressed with the quality of their work. Their understanding of blending traditional Indian values with modern digital trends sets them apart. Will work with them again for sure!",
       links: [
          {
@@ -254,7 +254,7 @@ export const clientsItem = [
       href: "https://www.delhidelivers.in",
       title: "Services:",
       name: "Raj Malhotra",
-      src: client07,
+
       review: "The result was simply amazing! For me, a digital partner is exceptional when you are so satisfied with the outcome that you want to showcase it everywhere. Their team delivered exactly that! They are very talented professionals who understand the real business challenges we face in the Indian market and iterate through many drafts to achieve the best possible outcome. We are looking forward to a long-lasting working relationship!",
       links: [
          {
@@ -285,7 +285,7 @@ export const clientsItem = [
       href: "https://www.chennaiconnect.com",
       title: "Services:",
       name: "Maya Krishnan",
-      src: client08,
+    
       review: "They perfectly captured what our service is all about. We found their ability to workshop different approaches and incorporate feedback was excellent, and it shows in the final product. Everything moved with a milestone-based approach via a shared platform which was convenient for tracking progress. We're very happy with both the process and the final outcome. All aspects were handled professionally with an authentic Indian touch.",
       links: [
          {
@@ -306,7 +306,7 @@ export const clientsItem = [
       href: "https://www.greenbharatergy.in",
       title: "Services:",
       name: "Ajay Mehta",
-      src: client09,
+
       review: "We were impressed by how accurately they captured the design aesthetic that perfectly aligned with both our personal preferences and the vision we have for our growing company. Their understanding of blending modern digital trends with traditional Indian elements created a unique identity for our brand.",
       links: [
          {
@@ -402,7 +402,7 @@ export const projectItem = [
       id: 4,
       title: "Samsara Media",
       href: "/case/",
-      src: project4,
+   
       links: [
          {
             id: 1,
@@ -420,7 +420,7 @@ export const serviceProcessItems = [
       id: 1,
       phase: "01. Phase",
       name: "Ignition",
-      src: phase1,
+
       review: "We analyze your goals, audience, and market to set the foundation for explosive growth.",
       button: "read"
    },
@@ -428,7 +428,7 @@ export const serviceProcessItems = [
       id: 2,
       phase: "02. Phase",
       name: "Core Strategy",
-      src: phase2,
+
       review: "We craft a high-impact narrative, defining the voice, structure, and flow that captivates minds.",
       button: "read"
    },
@@ -436,7 +436,7 @@ export const serviceProcessItems = [
       id: 3,
       phase: "03. Phase",
       name: "Visual Domination",
-      src: phase3,
+
       review: "We design with precision, guiding attention and creating an unforgettable brand presence.",
       button: "read"
    },
@@ -444,7 +444,7 @@ export const serviceProcessItems = [
       id: 4,
       phase: "04. Phase",
       name: "Tactical Refinement",
-      src: phase4,
+
       review: "We integrate feedback to fine-tune and amplify impact before final execution.",
       button: "read"
    },
@@ -452,7 +452,7 @@ export const serviceProcessItems = [
       id: 5,
       phase: "05. Phase",
       name: "Launch Sequence",
-      src: phase5,
+
       review: "We deliver optimized assets for seamless execution and long-term success.",
       button: "read"
    },
@@ -465,7 +465,7 @@ export const serviceClientsItem = [
       href: "/",
       title: "Services:",
       name: "William Barnes",
-      src: client01,
+
       review: "They were transparent about the time and the stages of the project. The end product is high quality, and I feel confident about how they were handholding the client through the process. I feel like I can introduce them to someone who needs to put a sales deck together from scratch, and they would be able to handhold the client experience from 0 to 100 very effectively from story to design. 5/5",
       links: [
          {
@@ -486,7 +486,7 @@ export const serviceClientsItem = [
       href: "https://www.planetly.com",
       title: "Services:",
       name: "Nina Walloch",
-      src: client02,
+
       review: "Ihor and his team tackled the projects with great professionalism and creativity. They understood our brand value and turned this into excellent slide designs. The process was seamless and very effective, so we decided to roll this out across all our presentation decks. Furthermore, their understanding, professionalism, and creativity have secured a continued partnership.",
       links: [
          {
@@ -532,7 +532,7 @@ export const serviceClientsItem = [
       href: "https://www.workiz.com",
       title: "Services:",
       name: "Tormer levy",
-      src: client03,
+
       review: "Nuke Marketing brought a certain level of professionalism into our presentations that we were lacking before. When I showed our management and HR teams the presentations OCHI developed, they were amazed — the final product was exactly what we needed to create a better experience for new employees and our clients.",
       links: [
          {
@@ -568,7 +568,7 @@ export const serviceClientsItem = [
       href: "https://www.premium-blend.com",
       title: "Services:",
       name: "Elien Kim",
-      src: client04,
+
       review: "They are truly changing the landscape of presentations!! Fast, effective, and nice humans that listened to every detail of our needs. Creating a deck with their template brings so much joy and ease. We proudly showcase their design in our calls and presentations.",
       links: [
          {
@@ -589,7 +589,7 @@ export const serviceClientsItem = [
       href: "https://www.hypercare-systems.com",
       title: "Services:",
       name: "Brendon Goss",
-      src: client05,
+
       review: "The service received from OCHI was absolutely first-class. Their close attention to detail, and deep thought in terms of narrative, flow, and aesthetics, completely exceeded my expectations, which were very high from the outset. Especially loved and appreciated the creation of visuals, animation, and advice around the look and feel that we are after. We will definitely continue working with Ihor and his team. I cannot recommend them highly enough.",
       links: [
          {
@@ -610,7 +610,7 @@ export const serviceClientsItem = [
       href: "https://www.officevibe.com",
       title: "Services:",
       name: "Raff Labri",
-      src: client06,
+
       review: "Ochi has an impressive understanding of what’s needed to do an effective presentation. The stakeholders at work said it’s the best most complete PP template they’ve ever seen. Ochi delivered more than I was expecting and we were really surprised with the quality of his work. Will work with Ochi design again for sure!",
       links: [
          {
@@ -626,7 +626,7 @@ export const serviceClientsItem = [
       href: "https://www.orderlion.com",
       title: "Services:",
       name: "Stefan Strohmer",
-      src: client07,
+
       review: "The result was just amazing! For me, a designer is exceptional when you are so satisfied with the result that you want to look at it the whole day like a kid with a new toy. Ihor and his team delivered exactly that! They are very talented designers who understand the real business problem we are trying to solve and iterate over many drafts to achieve the best possible outcome. We are looking for a long-lasting working relationship!",
       links: [
          {
@@ -662,7 +662,7 @@ export const serviceClientsItem = [
       href: "https://www.blackbookapp.co",
       title: "Services:",
       name: "Jacki Smith",
-      src: client08,
+
       review: "They nailed what our product was all about. We found their ability to workshop all the angles and take on feedback was great and it shows in the final product. Everything moved with a milestone dynamic brief via Notion which was handy to track progress. We’re very happy with the process and the final product. All was handled well and professionally.",
       links: [
          {
@@ -682,7 +682,7 @@ export const serviceClientsItem = [
 export const serviceCapaybilitiesItem = [
    {
       id: 1,
-      src1: capaybilities1,
+
       title1: "SOCIAL MEDIA STRATEGY:",
       review: "We craft scroll-stopping content, viral campaigns, and data-driven strategies to elevate your brand across all platforms.",
       subTitle: "Social Media Services",
@@ -698,7 +698,7 @@ export const serviceCapaybilitiesItem = [
             href: "/"
          },
       ],
-      src2: capaybilities2,
+
       title2: "BRAND STORYTELLING:",
       links2: [
          {
@@ -730,7 +730,7 @@ export const serviceCapaybilitiesItem = [
    },
    {
       id: 2,
-      src1: capaybilities3,
+  
       title1: "HIRE & MANAGE PEOPLE:",
       review: "We help manage investor expectations and secure financing for your business with an excellent investor deck.Having a good product or illuminating ideas is not enough anymore.Poor investor presentation may close the door to potential financing right away.In contrast, a properly made investor deck provides investors with clarity, evokes confidence, and leaves them craving for more.",
       subTitle: "Projects",
@@ -761,7 +761,7 @@ export const serviceCapaybilitiesItem = [
             href: "/"
          },
       ],
-      src2: capaybilities4,
+
       title2: "ADDITIONAL:",
       links2: [
          {
@@ -913,7 +913,7 @@ export const presentationProjectItem = [
    {
       id: 3,
       title: "premium blend",
-      src: project4,
+  
       href: "/case/",
       links: [
          {
@@ -926,7 +926,7 @@ export const presentationProjectItem = [
    {
       id: 4,
       title: "planetly",
-      src: project5,
+
       href: "/case/",
       links: [
          {
@@ -964,7 +964,7 @@ export const presentationProjectItem = [
    {
       id: 5,
       title: "black box",
-      src: project8,
+
       href: "/case/",
       links: [
          {
@@ -1005,7 +1005,7 @@ export const presentationProjectItem = [
    {
       id: 7,
       title: "soft start",
-      src: project9,
+     
       href: "/case/",
       links: [
          {
@@ -1023,7 +1023,7 @@ export const presentationProjectItem = [
    {
       id: 8,
       title: "officevibe",
-      src: project7,
+
       href: "/case/",
       links: [
          {
@@ -1036,7 +1036,7 @@ export const presentationProjectItem = [
    {
       id: 9,
       title: "workiz easy",
-      src: project6,
+
       href: "/case/",
       links: [
          {
@@ -1063,17 +1063,17 @@ export const publicationItems = [
    {
       id: 1,
       title: "officevibe ppt template",
-      src: publication1
+
    },
    {
       id: 2,
       title: "trawa energy pitch deck",
-      src: publication2
+
    },
    {
       id: 3,
       title: "tech for ukraine",
-      src: publication3
+
    },
 ];
 
@@ -1083,17 +1083,17 @@ export const insightsPublicationItems = [
    {
       id: 1,
       title: "Sales calls?  Oh no!👀",
-      src: insights1
+
    },
    {
       id: 2,
       title: "Are you trying to be the main character?",
-      src: insights2
+ 
    },
    {
       id: 3,
       title: "New Top 7",
-      src: insights3
+
    },
 ];
 
@@ -1101,7 +1101,7 @@ export const latestItemss = [
    {
       id: 1,
       href: "/",
-      src: latest1,
+
       links: [
          {
             id: 1,
@@ -1119,7 +1119,7 @@ export const latestItemss = [
    {
       id: 2,
       href: "/",
-      src: latest2,
+
       links: [
          {
             id: 1,
@@ -1137,7 +1137,7 @@ export const workizItem = [
    {
       id: 1,
       title: "office vibe",
-      src: project7,
+
       href: "/case/",
       links: [
          {
@@ -1150,7 +1150,7 @@ export const workizItem = [
    {
       id: 2,
       title: "planetly",
-      src: project5,
+
       href: "/case/",
       links: [
          {
@@ -1193,19 +1193,19 @@ export const workizItem = [
 export const aboutPartberItems = [
    {
       id: 1,
-      src: planetly,
+
       title: "Planetly",
       para: "Ihor and his team tackled the projects with great professionalism and creativity. They understood our brand value and turned this into excellent slide designs. The process was seamless and very effective, so we decided to roll this out across all our presentation decks. Furthermore, their understanding, professionalism, and creativity have secured a continued partnership."
    },
    {
       id: 2,
-      src: officevibe,
+
       title: "Officevibe",
       para: "Ochi has an impressive understanding of what's needed to do an effective presentation. The stakeholders at work said it's the best most complete PP template they've ever seen. Ochi delivered more than I was expecting and we were really surprised with the quality of his work. Will work with Ochi design again for sure!"
    },
    {
       id: 3,
-      src: nestle,
+
       title: "Nestle",
       para: "This is just a great experience for us! As an established company, you operate within different industries and expect immediate input with a certain level of service. Ihor and the team delivered exactly that. Fantastic result, quick delivery time, and highly responsive. This team is a hidden gem. We've already started to outline our next projects for them."
    },

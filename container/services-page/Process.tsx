@@ -65,11 +65,7 @@ export default function Process() {
 										}}>
 										<div className="flex flex-col gap-[20px] py-[30px]">
 											<div className="w-[130px] h-[130px]">
-												<Image
-													src={item.src}
-													alt="clientImg"
-													className="w-full h-full object-cover rounded-[10px]"
-												/>
+											
 											</div>
 											<div>
 												<p className="paragraph tracking-wider font-normal font-NeueMontreal text-secondry">
