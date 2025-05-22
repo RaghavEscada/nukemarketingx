@@ -724,7 +724,7 @@ export default function Hero() {
 
           <div className="header-1">
             <h1>
-            Your brand deserves a strategy that pulls in leads and sales like a magnet and makes engagement explode.💥
+            Your brand deserves a strategy that pulls in leads and sales like a magnet and makes engagement explode.
 
 
             </h1>

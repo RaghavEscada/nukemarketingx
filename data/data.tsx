@@ -62,128 +62,292 @@ export function AnimatedTestimonialsDemo() {
 export function TimelineDemo() {
   const data = [
     {
-      title: "Cliental Requirments",
+      title: "Deal Sourcing",
       content: (
-        <div>
-          <p className="text-white dark:text-yellow-300 text-xs md:text-sm font-normal mb-8">
-
-            Built and launched Nuke scratch. Before crafting any strategy, we take the time to deeply understand your business, goals, and audience. Our team conducts thorough market research to align our approach with your brand identity.
-          </p>
-          <div className="flex justify-end">
-            <Image
-              src="/latest1.png"
+        <div className="flex items-center space-x-8 bg-gray-900 p-6 rounded-xl">
+          <div className="flex-1">
+            <h2 className="mb-4 text-2xl font-bold text-blue-500">
+              📊 Deal Sourcing: The Heart of Business Growth 🚀
+            </h2>
+            
+            <p className="mb-5 text-base text-white">
+              The art of finding high-potential investment opportunities, acquisitions, and partnerships that drive growth.
+            </p>
+            
+            <div className="mb-5 border-l-4 border-blue-500 pl-4">
+              <h3 className="mb-3 text-xl font-medium text-blue-400">
+                Why is Deal Sourcing Important? 🤔
+              </h3>
+              <ul className="space-y-2">
+                <li className="flex items-center text-base text-white">
+                  <span className="mr-3 text-blue-500">💸</span>
+                  <span><strong className="text-blue-300">Maximizing Returns:</strong> Identifying high-quality opportunities</span>
+                </li>
+                <li className="flex items-center text-base text-white">
+                  <span className="mr-3 text-blue-500">🌐</span>
+                  <span><strong className="text-blue-300">Building Networks:</strong> Expanding connections for new opportunities</span>
+                </li>
+                <li className="flex items-center text-base text-white">
+                  <span className="mr-3 text-blue-500">🏦</span>
+                  <span><strong className="text-blue-300">Portfolio Diversification:</strong> Sourcing across multiple sectors</span>
+                </li>
+              </ul>
+            </div>
+            
+            <div className="border-l-4 border-blue-500 pl-4">
+              <h3 className="mb-3 text-xl font-medium text-blue-400">
+                Key Steps 🔍
+              </h3>
+              <ul className="space-y-2">
+                <li className="flex items-center text-base text-white">
+                  <span className="mr-3 text-blue-500">🔬</span>
+                  <span><strong className="text-blue-300">Market Research:</strong> Stay updated on trends</span>
+                </li>
+                <li className="flex items-center text-base text-white">
+                  <span className="mr-3 text-blue-500">🗣️</span>
+                  <span><strong className="text-blue-300">Networking:</strong> Build relationships with key players</span>
+                </li>
+                <li className="flex items-center text-base text-white">
+                  <span className="mr-3 text-blue-500">✅</span>
+                  <span><strong className="text-blue-300">Screening:</strong> Identify the right opportunities</span>
+                </li>
+                <li className="flex items-center text-base text-white">
+                  <span className="mr-3 text-blue-500">💬</span>
+                  <span><strong className="text-blue-300">Negotiation:</strong> Ensure win-win deals</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <div>
+            <img
+              src="hand.gif"
               alt="startup template"
-              width={200}  // Change this to your desired size
-              height={200} // Change this to your desired size
-              layout="intrinsic"
+              width={500}
+              height={500}
+              className="w-64 h-64 rounded-lg object-cover shadow-blue-500/50 shadow-lg"
             />
-
-
-            <Image
-              src="/nuke.png"
-              alt="startup template"
-              width={200}  // Change this to your desired size
-              height={200} // Change this to your desired size
-              layout="intrinsic"
+          </div>
+        </div>
+      ),
+    },    
+    {
+      title: "Investment Analysis",
+      content: (
+        <div className="flex items-center space-x-8 bg-gray-900 p-6 rounded-xl">
+          <div className="flex-1">
+            <h2 className="mb-4 text-2xl font-bold text-blue-500">
+              🔍 Investment Analysis: From Discovery to Decision 🎯
+            </h2>
+            
+            <p className="mb-5 text-base text-white">
+              The systematic process of evaluating potential opportunities to determine their strategic fit and financial viability.
+            </p>
+            
+            <div className="mb-5 border-l-4 border-blue-500 pl-4">
+              <h3 className="mb-3 text-xl font-medium text-blue-400">
+                Why is Investment Analysis Critical? 💡
+              </h3>
+              <ul className="space-y-2">
+                <li className="flex items-center text-base text-white">
+                  <span className="mr-3 text-blue-500">📈</span>
+                  <span><strong className="text-blue-300">Value Assessment:</strong> Identifying true growth potential beyond surface numbers</span>
+                </li>
+                <li className="flex items-center text-base text-white">
+                  <span className="mr-3 text-blue-500">🧩</span>
+                  <span><strong className="text-blue-300">Strategic Alignment:</strong> Ensuring opportunities match long-term objectives</span>
+                </li>
+                <li className="flex items-center text-base text-white">
+                  <span className="mr-3 text-blue-500">⚖️</span>
+                  <span><strong className="text-blue-300">Risk Management:</strong> Uncovering potential challenges before commitment</span>
+                </li>
+              </ul>
+            </div>
+            
+            <div className="border-l-4 border-blue-500 pl-4">
+              <h3 className="mb-3 text-xl font-medium text-blue-400">
+                Essential Components 🔍
+              </h3>
+              <ul className="space-y-2">
+                <li className="flex items-center text-base text-white">
+                  <span className="mr-3 text-blue-500">📊</span>
+                  <span><strong className="text-blue-300">Financial Examination:</strong> Scrutinize performance metrics and projections</span>
+                </li>
+                <li className="flex items-center text-base text-white">
+                  <span className="mr-3 text-blue-500">🏭</span>
+                  <span><strong className="text-blue-300">Operational Review:</strong> Evaluate business processes and efficiencies</span>
+                </li>
+                <li className="flex items-center text-base text-white">
+                  <span className="mr-3 text-blue-500">👥</span>
+                  <span><strong className="text-blue-300">Leadership Assessment:</strong> Analyze management team capabilities</span>
+                </li>
+                <li className="flex items-center text-base text-white">
+                  <span className="mr-3 text-blue-500">📜</span>
+                  <span><strong className="text-blue-300">Legal Verification:</strong> Confirm compliance and identify liabilities</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <div>
+            <img
+              src="st.gif"
+              alt="investment analysis"
+              width={500}
+              height={500}
+              className="w-64 h-64 rounded-lg object-cover shadow-blue-500/50 shadow-lg"
             />
-
-
-
           </div>
         </div>
       ),
     },
     {
-      title: "Impactful Solution Discussion",
+      title: "Integration Blueprint",
       content: (
-        <div>
-          <p className="text-white dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-            I usually run out of copy, but when I see content this big, I try to
-            integrate lorem ipsum.
-          </p>
-          <p className="text-white dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-            Lorem ipsum is for people who are too lazy to write copy. But we are
-            not. Here are some more example of beautiful designs I built.
-          </p>
-          <div className="flex justify-end">
-            <Image
-              src="/latest1.png"
-              alt="startup template"
-              width={200}  // Change this to your desired size
-              height={200} // Change this to your desired size
-              layout="intrinsic"
+        <div className="flex items-center space-x-8 bg-gray-900 p-6 rounded-xl">
+          <div className="flex-1">
+            <h2 className="mb-4 text-2xl font-bold text-blue-500">
+              🤝 Integration Blueprint: Transition to Ownership 📝
+            </h2>
+            
+            <p className="mb-5 text-base text-white">
+              The comprehensive roadmap for seamlessly incorporating new acquisitions into existing business infrastructure.
+            </p>
+            
+            <div className="mb-5 border-l-4 border-blue-500 pl-4">
+              <h3 className="mb-3 text-xl font-medium text-blue-400">
+                Why is Integration Planning Vital? 🌟
+              </h3>
+              <ul className="space-y-2">
+                <li className="flex items-center text-base text-white">
+                  <span className="mr-3 text-blue-500">🔄</span>
+                  <span><strong className="text-blue-300">Continuity Assurance:</strong> Minimizing disruption during ownership transfer</span>
+                </li>
+                <li className="flex items-center text-base text-white">
+                  <span className="mr-3 text-blue-500">🤝</span>
+                  <span><strong className="text-blue-300">Cultural Cohesion:</strong> Blending organizational values and practices</span>
+                </li>
+                <li className="flex items-center text-base text-white">
+                  <span className="mr-3 text-blue-500">💰</span>
+                  <span><strong className="text-blue-300">Synergy Capture:</strong> Realizing projected cost savings and revenue growth</span>
+                </li>
+              </ul>
+            </div>
+            
+            <div className="border-l-4 border-blue-500 pl-4">
+              <h3 className="mb-3 text-xl font-medium text-blue-400">
+                Critical Phases ⏱️
+              </h3>
+              <ul className="space-y-2">
+                <li className="flex items-center text-base text-white">
+                  <span className="mr-3 text-blue-500">📝</span>
+                  <span><strong className="text-blue-300">Documentation:</strong> Securing intellectual property and contractual agreements</span>
+                </li>
+                <li className="flex items-center text-base text-white">
+                  <span className="mr-3 text-blue-500">👋</span>
+                  <span><strong className="text-blue-300">Stakeholder Communication:</strong> Managing expectations of all parties</span>
+                </li>
+                <li className="flex items-center text-base text-white">
+                  <span className="mr-3 text-blue-500">🧩</span>
+                  <span><strong className="text-blue-300">System Consolidation:</strong> Unifying technology and operational frameworks</span>
+                </li>
+                <li className="flex items-center text-base text-white">
+                  <span className="mr-3 text-blue-500">👥</span>
+                  <span><strong className="text-blue-300">Team Alignment:</strong> Restructuring for optimal performance</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <div>
+            <img
+              src="bp.gif"
+              alt="integration blueprint"
+              width={500}
+              height={500}
+              className="w-64 h-64 rounded-lg object-cover shadow-blue-500/50 shadow-lg"
             />
-
-
-            <Image
-              src="/nuke.png"
-              alt="startup template"
-              width={200}  // Change this to your desired size
-              height={200} // Change this to your desired size
-              layout="intrinsic"
-            />
-
-
-
-
           </div>
         </div>
       ),
     },
     {
-      title: "Team Division",
+      title: "Growth Acceleration",
       content: (
-        <div>
-          <p className="text-white dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
-            Deployed 5 new components on today
-          </p>
-          <div className="mb-8">
-            <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
-              ✅ Card grid component
+        <div className="flex items-center space-x-8 bg-gray-900 p-6 rounded-xl">
+          <div className="flex-1">
+            <h2 className="mb-4 text-2xl font-bold text-blue-500">
+              🚀 Growth Acceleration: Transformation & Expansion 📈
+            </h2>
+            
+            <p className="mb-5 text-base text-white">
+              The strategic amplification of asset value through optimization, innovation, and market penetration.
+            </p>
+            
+            <div className="mb-5 border-l-4 border-blue-500 pl-4">
+              <h3 className="mb-3 text-xl font-medium text-blue-400">
+                Why is Growth Acceleration Essential? 🚀
+              </h3>
+              <ul className="space-y-2">
+                <li className="flex items-center text-base text-white">
+                  <span className="mr-3 text-blue-500">📊</span>
+                  <span><strong className="text-blue-300">Return Maximization:</strong> Delivering superior investor outcomes</span>
+                </li>
+                <li className="flex items-center text-base text-white">
+                  <span className="mr-3 text-blue-500">🌐</span>
+                  <span><strong className="text-blue-300">Market Leadership:</strong> Establishing competitive advantages</span>
+                </li>
+                <li className="flex items-center text-base text-white">
+                  <span className="mr-3 text-blue-500">🔄</span>
+                  <span><strong className="text-blue-300">Value Creation Cycle:</strong> Generating resources for future investments</span>
+                </li>
+              </ul>
             </div>
-            <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
-              ✅ Startup template
-            </div>
-            <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
-              ✅ Random file upload lol
-            </div>
-            <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
-              ✅ Himesh Reshammiya Music CD
-            </div>
-            <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
-              ✅ Salman Bhai Fan Club registrations open
+            
+            <div className="border-l-4 border-blue-500 pl-4">
+              <h3 className="mb-3 text-xl font-medium text-blue-400">
+                Strategic Levers 🔧
+              </h3>
+              <ul className="space-y-2">
+                <li className="flex items-center text-base text-white">
+                  <span className="mr-3 text-blue-500">💡</span>
+                  <span><strong className="text-blue-300">Innovation Catalyst:</strong> Introducing new products or services</span>
+                </li>
+                <li className="flex items-center text-base text-white">
+                  <span className="mr-3 text-blue-500">🌍</span>
+                  <span><strong className="text-blue-300">Market Development:</strong> Expanding into untapped territories</span>
+                </li>
+                <li className="flex items-center text-base text-white">
+                  <span className="mr-3 text-blue-500">⚙️</span>
+                  <span><strong className="text-blue-300">Efficiency Engineering:</strong> Streamlining operations for profitability</span>
+                </li>
+                <li className="flex items-center text-base text-white">
+                  <span className="mr-3 text-blue-500">🧠</span>
+                  <span><strong className="text-blue-300">Talent Optimization:</strong> Cultivating high-performance teams</span>
+                </li>
+              </ul>
             </div>
           </div>
-          <div className="flex justify-end">
-            <Image
-              src="/latest1.png"
-              alt="startup template"
-              width={200}  // Change this to your desired size
-              height={200} // Change this to your desired size
-              layout="intrinsic"
+          
+          <div>
+            <img
+              src="mm.gif"
+              alt="growth acceleration"
+              width={500}
+              height={500}
+              className="w-64 h-64 rounded-lg object-cover shadow-blue-500/50 shadow-lg"
             />
-
-
-            <Image
-              src="/nuke.png"
-              alt="startup template"
-              width={200}  // Change this to your desired size
-              height={200} // Change this to your desired size
-              layout="intrinsic"
-            />
-
           </div>
         </div>
       ),
     },
   ];
   return (
-    <div className="w-full">
+    <div className="relative w-full overflow-clip">
       <Timeline data={data} />
     </div>
   );
 }
-
 export function TextHoverEffectDemo() {
   return (
     <div className="h-[40rem] flex items-center justify-center">

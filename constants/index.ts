@@ -24,11 +24,12 @@ export const navbarItems = [
       title: "Team",
       href: "/nuke-team",
    },
-   // {
-   //    id: 4,
-   //    title: "About Us",
-   //    href: "/insights",
-   // },
+
+   {
+      id: 4,
+      title: "About Us",
+      href: "/about-us",
+   },
    {
       id: 5,
       title: "Contact us",
