@@ -29,8 +29,7 @@ export { default as Partners } from './about-page/Partners';
 export { default as Insights } from './about-page/Insights';
 
 // insights page
-export { default as Heroinsights } from './insights-page/Hero';
-export { default as Publicationinsights } from './insights-page/Publication';
+
 
 // contact page
 export { default as Herocontact } from './contact-page/Hero';
@@ -38,10 +37,3 @@ export { default as Form } from './contact-page/Form';
 export { default as FAQ } from './contact-page/Faq';
 export { default as Socials } from './contact-page/Socials';
 // workiz page
-export { default as Heroworkiz } from './workiz-page/Hero';
-export { default as Aboutworkiz } from './workiz-page/About';
-export { default as Works } from './workiz-page/Works';
-export { default as Chelenge } from './workiz-page/Chelenge';
-export { default as Result } from './workiz-page/Result';
-export { default as Credit } from './workiz-page/Credit';
-export { default as VideoWorkiz } from './workiz-page/Video';
