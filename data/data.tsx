@@ -62,34 +62,34 @@ export function AnimatedTestimonialsDemo() {
 export function TimelineDemo() {
   const data = [
     {
-      title: "Deal Sourcing",
+      title: "Discovery & Strategy",
       content: (
         <div className="flex items-center space-x-8 bg-gray-900 p-6 rounded-xl">
           <div className="flex-1">
             <h2 className="mb-4 text-2xl font-bold text-blue-500">
-              📊 Deal Sourcing: The Heart of Business Growth 🚀
+              🎯 Discovery & Strategy: The Foundation of Success 🚀
             </h2>
             
             <p className="mb-5 text-base text-white">
-              The art of finding high-potential investment opportunities, acquisitions, and partnerships that drive growth.
+              The art of understanding your brand, audience, and market to create winning marketing strategies that drive results.
             </p>
             
             <div className="mb-5 border-l-4 border-blue-500 pl-4">
               <h3 className="mb-3 text-xl font-medium text-blue-400">
-                Why is Deal Sourcing Important? 🤔
+                Why is Discovery & Strategy Important? 🤔
               </h3>
               <ul className="space-y-2">
                 <li className="flex items-center text-base text-white">
-                  <span className="mr-3 text-blue-500">💸</span>
-                  <span><strong className="text-blue-300">Maximizing Returns:</strong> Identifying high-quality opportunities</span>
+                  <span className="mr-3 text-blue-500">🎯</span>
+                  <span><strong className="text-blue-300">Targeted Approach:</strong> Identifying the right audience and messaging</span>
                 </li>
                 <li className="flex items-center text-base text-white">
-                  <span className="mr-3 text-blue-500">🌐</span>
-                  <span><strong className="text-blue-300">Building Networks:</strong> Expanding connections for new opportunities</span>
+                  <span className="mr-3 text-blue-500">💡</span>
+                  <span><strong className="text-blue-300">Brand Positioning:</strong> Defining your unique value proposition</span>
                 </li>
                 <li className="flex items-center text-base text-white">
-                  <span className="mr-3 text-blue-500">🏦</span>
-                  <span><strong className="text-blue-300">Portfolio Diversification:</strong> Sourcing across multiple sectors</span>
+                  <span className="mr-3 text-blue-500">📊</span>
+                  <span><strong className="text-blue-300">Market Intelligence:</strong> Understanding competitor landscape and opportunities</span>
                 </li>
               </ul>
             </div>
@@ -101,19 +101,19 @@ export function TimelineDemo() {
               <ul className="space-y-2">
                 <li className="flex items-center text-base text-white">
                   <span className="mr-3 text-blue-500">🔬</span>
-                  <span><strong className="text-blue-300">Market Research:</strong> Stay updated on trends</span>
+                  <span><strong className="text-blue-300">Market Research:</strong> Deep dive into industry trends and customer behavior</span>
                 </li>
                 <li className="flex items-center text-base text-white">
-                  <span className="mr-3 text-blue-500">🗣️</span>
-                  <span><strong className="text-blue-300">Networking:</strong> Build relationships with key players</span>
+                  <span className="mr-3 text-blue-500">👥</span>
+                  <span><strong className="text-blue-300">Audience Analysis:</strong> Creating detailed buyer personas</span>
                 </li>
                 <li className="flex items-center text-base text-white">
-                  <span className="mr-3 text-blue-500">✅</span>
-                  <span><strong className="text-blue-300">Screening:</strong> Identify the right opportunities</span>
+                  <span className="mr-3 text-blue-500">🗺️</span>
+                  <span><strong className="text-blue-300">Strategy Mapping:</strong> Developing comprehensive marketing roadmap</span>
                 </li>
                 <li className="flex items-center text-base text-white">
-                  <span className="mr-3 text-blue-500">💬</span>
-                  <span><strong className="text-blue-300">Negotiation:</strong> Ensure win-win deals</span>
+                  <span className="mr-3 text-blue-500">📈</span>
+                  <span><strong className="text-blue-300">Goal Setting:</strong> Establishing measurable KPIs and objectives</span>
                 </li>
               </ul>
             </div>
@@ -122,7 +122,7 @@ export function TimelineDemo() {
           <div>
             <img
               src="hand.gif"
-              alt="startup template"
+              alt="discovery strategy"
               width={500}
               height={500}
               className="w-64 h-64 rounded-lg object-cover shadow-blue-500/50 shadow-lg"
@@ -132,58 +132,58 @@ export function TimelineDemo() {
       ),
     },    
     {
-      title: "Investment Analysis",
+      title: "Creative Development",
       content: (
         <div className="flex items-center space-x-8 bg-gray-900 p-6 rounded-xl">
           <div className="flex-1">
             <h2 className="mb-4 text-2xl font-bold text-blue-500">
-              🔍 Investment Analysis: From Discovery to Decision 🎯
+              🎨 Creative Development: Bringing Ideas to Life 🎭
             </h2>
             
             <p className="mb-5 text-base text-white">
-              The systematic process of evaluating potential opportunities to determine their strategic fit and financial viability.
+              The creative process of transforming strategic insights into compelling visual and written content that resonates with your audience.
             </p>
             
             <div className="mb-5 border-l-4 border-blue-500 pl-4">
               <h3 className="mb-3 text-xl font-medium text-blue-400">
-                Why is Investment Analysis Critical? 💡
+                Why is Creative Development Critical? 💡
               </h3>
               <ul className="space-y-2">
                 <li className="flex items-center text-base text-white">
-                  <span className="mr-3 text-blue-500">📈</span>
-                  <span><strong className="text-blue-300">Value Assessment:</strong> Identifying true growth potential beyond surface numbers</span>
+                  <span className="mr-3 text-blue-500">✨</span>
+                  <span><strong className="text-blue-300">Brand Recognition:</strong> Creating memorable visual identity and messaging</span>
                 </li>
                 <li className="flex items-center text-base text-white">
-                  <span className="mr-3 text-blue-500">🧩</span>
-                  <span><strong className="text-blue-300">Strategic Alignment:</strong> Ensuring opportunities match long-term objectives</span>
+                  <span className="mr-3 text-blue-500">💝</span>
+                  <span><strong className="text-blue-300">Emotional Connection:</strong> Building strong relationships with your audience</span>
                 </li>
                 <li className="flex items-center text-base text-white">
-                  <span className="mr-3 text-blue-500">⚖️</span>
-                  <span><strong className="text-blue-300">Risk Management:</strong> Uncovering potential challenges before commitment</span>
+                  <span className="mr-3 text-blue-500">🏆</span>
+                  <span><strong className="text-blue-300">Competitive Edge:</strong> Standing out in crowded marketplaces</span>
                 </li>
               </ul>
             </div>
             
             <div className="border-l-4 border-blue-500 pl-4">
               <h3 className="mb-3 text-xl font-medium text-blue-400">
-                Essential Components 🔍
+                Creative Elements 🎨
               </h3>
               <ul className="space-y-2">
                 <li className="flex items-center text-base text-white">
-                  <span className="mr-3 text-blue-500">📊</span>
-                  <span><strong className="text-blue-300">Financial Examination:</strong> Scrutinize performance metrics and projections</span>
+                  <span className="mr-3 text-blue-500">🖼️</span>
+                  <span><strong className="text-blue-300">Visual Design:</strong> Crafting stunning graphics, videos, and animations</span>
                 </li>
                 <li className="flex items-center text-base text-white">
-                  <span className="mr-3 text-blue-500">🏭</span>
-                  <span><strong className="text-blue-300">Operational Review:</strong> Evaluate business processes and efficiencies</span>
+                  <span className="mr-3 text-blue-500">✍️</span>
+                  <span><strong className="text-blue-300">Copywriting:</strong> Developing persuasive and engaging content</span>
                 </li>
                 <li className="flex items-center text-base text-white">
-                  <span className="mr-3 text-blue-500">👥</span>
-                  <span><strong className="text-blue-300">Leadership Assessment:</strong> Analyze management team capabilities</span>
+                  <span className="mr-3 text-blue-500">📱</span>
+                  <span><strong className="text-blue-300">Multi-Platform Assets:</strong> Optimizing content for all channels</span>
                 </li>
                 <li className="flex items-center text-base text-white">
-                  <span className="mr-3 text-blue-500">📜</span>
-                  <span><strong className="text-blue-300">Legal Verification:</strong> Confirm compliance and identify liabilities</span>
+                  <span className="mr-3 text-blue-500">🎬</span>
+                  <span><strong className="text-blue-300">Multimedia Production:</strong> Creating video, audio, and interactive content</span>
                 </li>
               </ul>
             </div>
@@ -192,7 +192,7 @@ export function TimelineDemo() {
           <div>
             <img
               src="st.gif"
-              alt="investment analysis"
+              alt="creative development"
               width={500}
               height={500}
               className="w-64 h-64 rounded-lg object-cover shadow-blue-500/50 shadow-lg"
@@ -202,58 +202,58 @@ export function TimelineDemo() {
       ),
     },
     {
-      title: "Integration Blueprint",
+      title: "Campaign Launch",
       content: (
         <div className="flex items-center space-x-8 bg-gray-900 p-6 rounded-xl">
           <div className="flex-1">
             <h2 className="mb-4 text-2xl font-bold text-blue-500">
-              🤝 Integration Blueprint: Transition to Ownership 📝
+              🚀 Campaign Launch: Nuke's Roadmap to Market 📢
             </h2>
             
             <p className="mb-5 text-base text-white">
-              The comprehensive roadmap for seamlessly incorporating new acquisitions into existing business infrastructure.
+              The strategic execution of marketing campaigns across multiple channels to maximize reach, engagement, and conversions.
             </p>
             
             <div className="mb-5 border-l-4 border-blue-500 pl-4">
               <h3 className="mb-3 text-xl font-medium text-blue-400">
-                Why is Integration Planning Vital? 🌟
+                Why is Campaign Launch Vital? 🌟
               </h3>
               <ul className="space-y-2">
                 <li className="flex items-center text-base text-white">
-                  <span className="mr-3 text-blue-500">🔄</span>
-                  <span><strong className="text-blue-300">Continuity Assurance:</strong> Minimizing disruption during ownership transfer</span>
+                  <span className="mr-3 text-blue-500">⏰</span>
+                  <span><strong className="text-blue-300">Perfect Timing:</strong> Reaching audiences at the optimal moment</span>
                 </li>
                 <li className="flex items-center text-base text-white">
-                  <span className="mr-3 text-blue-500">🤝</span>
-                  <span><strong className="text-blue-300">Cultural Cohesion:</strong> Blending organizational values and practices</span>
+                  <span className="mr-3 text-blue-500">🌐</span>
+                  <span><strong className="text-blue-300">Multi-Channel Presence:</strong> Maximizing visibility across platforms</span>
                 </li>
                 <li className="flex items-center text-base text-white">
                   <span className="mr-3 text-blue-500">💰</span>
-                  <span><strong className="text-blue-300">Synergy Capture:</strong> Realizing projected cost savings and revenue growth</span>
+                  <span><strong className="text-blue-300">ROI Optimization:</strong> Ensuring every dollar drives maximum results</span>
                 </li>
               </ul>
             </div>
             
             <div className="border-l-4 border-blue-500 pl-4">
               <h3 className="mb-3 text-xl font-medium text-blue-400">
-                Critical Phases ⏱️
+                Launch Phases ⏱️
               </h3>
               <ul className="space-y-2">
                 <li className="flex items-center text-base text-white">
-                  <span className="mr-3 text-blue-500">📝</span>
-                  <span><strong className="text-blue-300">Documentation:</strong> Securing intellectual property and contractual agreements</span>
+                  <span className="mr-3 text-blue-500">🎯</span>
+                  <span><strong className="text-blue-300">Targeting Setup:</strong> Configuring precise audience parameters</span>
                 </li>
                 <li className="flex items-center text-base text-white">
-                  <span className="mr-3 text-blue-500">👋</span>
-                  <span><strong className="text-blue-300">Stakeholder Communication:</strong> Managing expectations of all parties</span>
+                  <span className="mr-3 text-blue-500">📊</span>
+                  <span><strong className="text-blue-300">Performance Monitoring:</strong> Real-time tracking and adjustments</span>
                 </li>
                 <li className="flex items-center text-base text-white">
-                  <span className="mr-3 text-blue-500">🧩</span>
-                  <span><strong className="text-blue-300">System Consolidation:</strong> Unifying technology and operational frameworks</span>
+                  <span className="mr-3 text-blue-500">🔄</span>
+                  <span><strong className="text-blue-300">Cross-Platform Coordination:</strong> Synchronizing all marketing channels</span>
                 </li>
                 <li className="flex items-center text-base text-white">
-                  <span className="mr-3 text-blue-500">👥</span>
-                  <span><strong className="text-blue-300">Team Alignment:</strong> Restructuring for optimal performance</span>
+                  <span className="mr-3 text-blue-500">📈</span>
+                  <span><strong className="text-blue-300">Performance Analytics:</strong> Measuring impact and gathering insights</span>
                 </li>
               </ul>
             </div>
@@ -262,7 +262,7 @@ export function TimelineDemo() {
           <div>
             <img
               src="bp.gif"
-              alt="integration blueprint"
+              alt="campaign launch"
               width={500}
               height={500}
               className="w-64 h-64 rounded-lg object-cover shadow-blue-500/50 shadow-lg"
@@ -272,34 +272,34 @@ export function TimelineDemo() {
       ),
     },
     {
-      title: "Growth Acceleration",
+      title: "Growth & Optimization",
       content: (
         <div className="flex items-center space-x-8 bg-gray-900 p-6 rounded-xl">
           <div className="flex-1">
             <h2 className="mb-4 text-2xl font-bold text-blue-500">
-              🚀 Growth Acceleration: Transformation & Expansion 📈
+              📈 Growth & Optimization: Scaling Success 🔧
             </h2>
             
             <p className="mb-5 text-base text-white">
-              The strategic amplification of asset value through optimization, innovation, and market penetration.
+              The continuous process of analyzing performance data, refining strategies, and scaling successful campaigns for exponential growth.
             </p>
             
             <div className="mb-5 border-l-4 border-blue-500 pl-4">
               <h3 className="mb-3 text-xl font-medium text-blue-400">
-                Why is Growth Acceleration Essential? 🚀
+                Why is Growth & Optimization Essential? 🚀
               </h3>
               <ul className="space-y-2">
                 <li className="flex items-center text-base text-white">
                   <span className="mr-3 text-blue-500">📊</span>
-                  <span><strong className="text-blue-300">Return Maximization:</strong> Delivering superior investor outcomes</span>
+                  <span><strong className="text-blue-300">Maximum ROI:</strong> Extracting the highest value from marketing spend</span>
                 </li>
                 <li className="flex items-center text-base text-white">
-                  <span className="mr-3 text-blue-500">🌐</span>
-                  <span><strong className="text-blue-300">Market Leadership:</strong> Establishing competitive advantages</span>
+                  <span className="mr-3 text-blue-500">🏆</span>
+                  <span><strong className="text-blue-300">Market Domination:</strong> Establishing long-term competitive advantages</span>
                 </li>
                 <li className="flex items-center text-base text-white">
                   <span className="mr-3 text-blue-500">🔄</span>
-                  <span><strong className="text-blue-300">Value Creation Cycle:</strong> Generating resources for future investments</span>
+                  <span><strong className="text-blue-300">Sustainable Growth:</strong> Building scalable marketing systems</span>
                 </li>
               </ul>
             </div>
@@ -310,20 +310,20 @@ export function TimelineDemo() {
               </h3>
               <ul className="space-y-2">
                 <li className="flex items-center text-base text-white">
+                  <span className="mr-3 text-blue-500">🧪</span>
+                  <span><strong className="text-blue-300">A/B Testing:</strong> Continuously improving campaign performance</span>
+                </li>
+                <li className="flex items-center text-base text-white">
+                  <span className="mr-3 text-blue-500">🎯</span>
+                  <span><strong className="text-blue-300">Audience Refinement:</strong> Discovering new high-value segments</span>
+                </li>
+                <li className="flex items-center text-base text-white">
                   <span className="mr-3 text-blue-500">💡</span>
-                  <span><strong className="text-blue-300">Innovation Catalyst:</strong> Introducing new products or services</span>
+                  <span><strong className="text-blue-300">Innovation Integration:</strong> Adopting cutting-edge marketing technologies</span>
                 </li>
                 <li className="flex items-center text-base text-white">
-                  <span className="mr-3 text-blue-500">🌍</span>
-                  <span><strong className="text-blue-300">Market Development:</strong> Expanding into untapped territories</span>
-                </li>
-                <li className="flex items-center text-base text-white">
-                  <span className="mr-3 text-blue-500">⚙️</span>
-                  <span><strong className="text-blue-300">Efficiency Engineering:</strong> Streamlining operations for profitability</span>
-                </li>
-                <li className="flex items-center text-base text-white">
-                  <span className="mr-3 text-blue-500">🧠</span>
-                  <span><strong className="text-blue-300">Talent Optimization:</strong> Cultivating high-performance teams</span>
+                  <span className="mr-3 text-blue-500">📈</span>
+                  <span><strong className="text-blue-300">Scaling Strategies:</strong> Expanding successful campaigns to new markets</span>
                 </li>
               </ul>
             </div>
@@ -332,7 +332,7 @@ export function TimelineDemo() {
           <div>
             <img
               src="mm.gif"
-              alt="growth acceleration"
+              alt="growth optimization"
               width={500}
               height={500}
               className="w-64 h-64 rounded-lg object-cover shadow-blue-500/50 shadow-lg"

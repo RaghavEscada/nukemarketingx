@@ -257,7 +257,7 @@ export default function About() {
             </motion.div>
 
 
-            <TimelineDemo/>
+        
 
 
 
@@ -291,6 +291,7 @@ export default function About() {
           </div>
         </div>
       </div>
+      <TimelineDemo/>
       <div>
       <LogoCloud />
       

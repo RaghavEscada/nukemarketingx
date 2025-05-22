@@ -135,10 +135,10 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
         className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10 relative z-10"
       >
         <h2 className="text-2xl md:text-6xl lg:text-7xl mb-6 text-white font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
-        Acquisition at Pocket Fund
+        Nuke's Roadmap
         </h2>
         <p className="text-gray-300 text-lg md:text-xl max-w-2xl leading-relaxed">
-        Step-by-step process of acquiring, managing, and growing funds in a pocket fund.
+        Step-by-step process of acquiring, managing, and growing media content in Nuke Marketing.
         </p>
       </motion.div>
 
