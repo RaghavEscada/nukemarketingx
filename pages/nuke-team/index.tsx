@@ -69,23 +69,23 @@ export default function MeetOurTeam() {
         {/* Loading animation */}
         <AnimatePresence>
           {!isSplineLoaded && (
-            <motion.div 
+            <motion.div
               className="absolute inset-0 z-20 bg-gradient-to-b from-white to-gray-50 flex flex-col justify-center items-center"
               initial={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <MotionImage 
-                src="/nuke.png" 
+              <MotionImage
+                src="/nuke.png"
                 alt="nuke"
                 width={112} // h-28 = 7rem = 112px
                 height={112} // Using square dimensions, adjust if needed
                 className="h-28 w-auto object-contain mb-8"
-                animate={{ 
+                animate={{
                   scale: [1, 1.05, 1],
                   filter: ["brightness(1)", "brightness(1.2)", "brightness(1)"]
                 }}
-                transition={{ 
+                transition={{
                   duration: 3,
                   repeat: Infinity,
                   ease: "easeInOut"
@@ -97,8 +97,8 @@ export default function MeetOurTeam() {
                 <motion.div
                   className="h-full bg-gradient-to-r from-gray-400 to-black rounded-full"
                   animate={{ x: [-288, 0] }}
-                  transition={{ 
-                    duration: 2, 
+                  transition={{
+                    duration: 2,
                     repeat: Infinity,
                     ease: "easeInOut"
                   }}
@@ -110,28 +110,27 @@ export default function MeetOurTeam() {
             </motion.div>
           )}
         </AnimatePresence>
-        
+
         <Spline
-          scene="https://prod.spline.design/oy2Au6Go8zzEWh1g/scene.splinecode"
-          className="w-full h-full"
-          onLoad={handleSplineLoad}
+          scene="https://prod.spline.design/d4yC8aVQfxXXcEUr/scene.splinecode"
         />
-        
+
+
         {/* Full-width black footer with centered logo */}
         <div className="absolute bottom-0 left-0 w-full h-24 bg-black z-10 flex justify-center items-center rounded-t-3xl">
-          <Image 
-            src="/nuke.png" 
-            alt="nuke" 
+          <Image
+            src="/nuke.png"
+            alt="nuke"
             width={64} // h-16 = 4rem = 64px
             height={64} // Adjust height as needed
             className="h-16 w-auto object-contain"
           />
         </div>
-        
+
         {/* Centered scroll indicator for all screen sizes */}
         <AnimatePresence>
           {showScrollIndicator && isSplineLoaded && (
-            <motion.div 
+            <motion.div
               className="absolute bottom-10 text-red-500 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1, y: [0, 10, 0] }}
@@ -144,9 +143,9 @@ export default function MeetOurTeam() {
           )}
         </AnimatePresence>
       </div>
-      
+
       <LampDemoTeam />
-      
+
       <section className="relative min-h-screen w-full flex flex-col justify-center items-center bg-gradient-to-b from-white to-gray-50 text-black pt-32 px-4">
         {/* Quote - centered and responsive on all devices */}
         <h1 className="absolute top-16 md:top-28 italic text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tighter font-light text-gray-700 text-center w-full max-w-xl mx-auto px-4 mb-16">
@@ -163,11 +162,11 @@ export default function MeetOurTeam() {
             className="flex flex-col items-center text-center max-w-4xl w-full px-4 sm:px-6 md:px-8 mt-16 md:mt-24"
           >
             <motion.div className="relative">
-              <motion.div 
+              <motion.div
                 className="absolute -inset-0.5 bg-gradient-to-tr from-gray-200 via-gray-300 to-gray-400 rounded-3xl blur-sm opacity-75"
-                animate={{ 
+                animate={{
                   background: [
-                    "linear-gradient(to top right, #e5e7eb, #d1d5db, #9ca3af)", 
+                    "linear-gradient(to top right, #e5e7eb, #d1d5db, #9ca3af)",
                     "linear-gradient(to top right, #d1d5db, #9ca3af, #e5e7eb)",
                     "linear-gradient(to top right, #9ca3af, #e5e7eb, #d1d5db)"
                   ]
@@ -186,9 +185,9 @@ export default function MeetOurTeam() {
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               />
             </motion.div>
-            
+
             <div className="flex flex-col items-center max-w-sm mt-4">
-              <motion.h2 
+              <motion.h2
                 className="text-2xl sm:text-3xl md:text-4xl font-medium tracking-tight"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -196,15 +195,15 @@ export default function MeetOurTeam() {
               >
                 {teamMembers[index].name}
               </motion.h2>
-              
-              <motion.div 
+
+              <motion.div
                 className="h-px w-24 bg-gradient-to-r from-transparent via-gray-400 to-transparent my-5"
                 initial={{ opacity: 0, width: "0px" }}
                 animate={{ opacity: 1, width: "96px" }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               />
-              
-              <motion.p 
+
+              <motion.p
                 className="text-base md:text-lg text-gray-500 uppercase tracking-widest font-light"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -212,8 +211,8 @@ export default function MeetOurTeam() {
               >
                 {teamMembers[index].role}
               </motion.p>
-              
-              <motion.p 
+
+              <motion.p
                 className="mt-8 text-gray-600 leading-relaxed text-sm md:text-base font-light italic"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -226,7 +225,7 @@ export default function MeetOurTeam() {
         </AnimatePresence>
 
         {/* Arrow navigation - horizontally split on both sides */}
-        <motion.div 
+        <motion.div
           className="absolute left-4 sm:left-8 md:left-12 lg:left-24 top-1/2 transform -translate-y-1/2"
           whileHover={{ x: -3 }}
           transition={{ duration: 0.2 }}
@@ -240,8 +239,8 @@ export default function MeetOurTeam() {
             <ChevronLeft className="w-6 h-6 sm:w-7 sm:h-7 text-gray-800" />
           </motion.button>
         </motion.div>
-        
-        <motion.div 
+
+        <motion.div
           className="absolute right-4 sm:right-8 md:right-12 lg:right-24 top-1/2 transform -translate-y-1/2"
           whileHover={{ x: 3 }}
           transition={{ duration: 0.2 }}
