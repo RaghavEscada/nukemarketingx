@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Star, Instagram, Linkedin, MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import StyledSection from './page';
-import { TimelineDemo } from "@/data/data";
+
 
 const socialLinks = [
   { id: 1, title: "Instagram", href: "https://instagram.com", icon: <Instagram size={20} /> },
@@ -291,7 +291,7 @@ export default function About() {
           </div>
         </div>
       </div>
-      <TimelineDemo/>
+  
       <div>
       <LogoCloud />
       
