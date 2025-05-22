@@ -4,6 +4,23 @@ import { Star, Instagram, Linkedin, MessageCircle, Target, Zap, Eye } from "luci
 import { motion } from "framer-motion";
 import { useEffect, useRef } from "react";
 
+declare global {
+  interface Window {
+    gsap: any;
+    ScrollTrigger: any;
+    Matter: {
+      Engine: any;
+      Runner: any;
+      World: any;
+      Bodies: any;
+      Body: any;
+      Events: any;
+    };
+    SplitType: any;
+    Lenis: any;
+  }
+}
+
 const socialLinks = [
   { id: 1, title: "Instagram", href: "https://instagram.com", icon: <Instagram size={20} /> },
   { id: 2, title: "LinkedIn", href: "https://linkedin.com", icon: <Linkedin size={20} /> },
@@ -56,9 +73,11 @@ const LogoCloud = () => {
                 className="flex shrink-0 animate-logo-cloud flex-row justify-around gap-6"
               >
                 {logos.map((logo, key) => (
-                  <img
+                  <Image
                     key={key}
                     src={logo.url}
+                    width={128}
+                    height={120}
                     className="h-30 w-32 px-2"
                     alt={logo.name}
                   />
@@ -71,12 +90,19 @@ const LogoCloud = () => {
   );
 };
 
-// Explosive Story Component - Completely Isolated
-const ExplosiveStory = () => {
+export default function About() {
   const storyRef = useRef(null);
 
   useEffect(() => {
-    const loadScript = (src) => {
+    const scripts = [
+      'https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.17.1/matter.min.js',
+      'https://unpkg.com/split-type',
+      'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js',
+      'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js',
+      'https://unpkg.com/lenis@1.1.20/dist/lenis.min.js'
+    ];
+
+    const loadScript = (src: string): Promise<void> => {
       return new Promise((resolve) => {
         if (document.querySelector(`script[src="${src}"]`)) {
           resolve();
@@ -84,46 +110,37 @@ const ExplosiveStory = () => {
         }
         const script = document.createElement('script');
         script.src = src;
-        script.onload = resolve;
-        script.onerror = resolve;
+        script.onload = () => resolve();
+        script.onerror = () => resolve();
         document.head.appendChild(script);
       });
     };
 
-    const initAnimation = async () => {
-      try {
-        await Promise.all([
-          loadScript('https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.17.1/matter.min.js'),
-          loadScript('https://unpkg.com/split-type'),
-          loadScript('https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js'),
-          loadScript('https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js'),
-          loadScript('https://unpkg.com/lenis@1.1.20/dist/lenis.min.js')
-        ]);
+    Promise.all(scripts.map(loadScript)).then(() => {
+      setTimeout(() => {
+        if (
+          typeof window !== 'undefined' &&
+          window.gsap &&
+          (window as any).ScrollTrigger &&
+          (window as any).Matter &&
+          (window as any).SplitType &&
+          (window as any).Lenis
+        ) {
+          initStoryAnimation();
+        }
+      }, 500);
+    });
 
-        setTimeout(() => {
-          if (window.gsap && window.ScrollTrigger && window.Matter && window.SplitType && window.Lenis) {
-            setupStoryAnimation();
-          }
-        }, 100);
-      } catch (error) {
-        console.log('Animation libraries not loaded');
-      }
-    };
-
-    const setupStoryAnimation = () => {
-      const { gsap, ScrollTrigger, Matter, SplitType, Lenis } = window;
+    const initStoryAnimation = () => {
+      const { gsap, ScrollTrigger, Matter, SplitType, Lenis } = window as any;
       
       gsap.registerPlugin(ScrollTrigger);
 
-      // Smooth scrolling
       const lenis = new Lenis();
       lenis.on("scroll", ScrollTrigger.update);
-      gsap.ticker.add((time) => {
-        lenis.raf(time * 1000);
-      });
+      gsap.ticker.add((time: number) => lenis.raf(time * 1000));
       gsap.ticker.lagSmoothing(0);
 
-      // Highlight words
       const highlightWords = [
         "Nuke", "corporate", "startup", "creative", "freelancing",
         "explodes", "wildfire", "recognition", "standards", "quality", "story"
@@ -132,15 +149,11 @@ const ExplosiveStory = () => {
       const text = new SplitType(storyRef.current, { types: "words" });
       const words = [...text.words];
 
-      // Matter.js setup
       const { Engine, Runner, World, Bodies, Body, Events } = Matter;
-      const engine = Engine.create({
-        gravity: { x: 0, y: 0 },
-      });
+      const engine = Engine.create({ gravity: { x: 0, y: 0 } });
       const runner = Runner.create();
       Runner.run(runner, engine);
 
-      // Floor
       const floor = Bodies.rectangle(
         window.innerWidth / 2,
         window.innerHeight + 5,
@@ -150,14 +163,12 @@ const ExplosiveStory = () => {
       );
       World.add(engine.world, floor);
 
-      // Shuffle words for random animation
       const shuffledWords = [...words];
       for (let i = shuffledWords.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [shuffledWords[i], shuffledWords[j]] = [shuffledWords[j], shuffledWords[i]];
       }
 
-      // Find words to highlight
       const wordsToHighlight = words.filter((word) =>
         highlightWords.some((highlight) => 
           word.textContent.toLowerCase().includes(highlight.toLowerCase())
@@ -166,18 +177,22 @@ const ExplosiveStory = () => {
 
       let physicsEnabled = false;
       let lastProgress = 0;
-      const charElements = [];
-      const charBodies = [];
+      interface CharBody {
+        body: any;
+        element: HTMLElement;
+        initialX: number;
+        initialY: number;
+      }
+      const charBodies: CharBody[] = [];
 
-      // Create physics bodies for highlighted words
       wordsToHighlight.forEach((word) => {
         const chars = word.textContent.split("");
         const wordRect = word.getBoundingClientRect();
-        const stickyRect = storyRef.current.parentElement.getBoundingClientRect();
+        const stickyElement = document.querySelector(".sticky");
+        if (!stickyElement) return;
+        const stickyRect = stickyElement.getBoundingClientRect();
 
-        word.style.opacity = 1;
-
-        chars.forEach((char, charIndex) => {
+        chars.forEach((char: string, charIndex: number) => {
           const charSpan = document.createElement("span");
           charSpan.className = "char";
           charSpan.textContent = char;
@@ -190,7 +205,7 @@ const ExplosiveStory = () => {
             font-size: inherit;
             font-weight: inherit;
           `;
-          storyRef.current.parentElement.appendChild(charSpan);
+          stickyElement.appendChild(charSpan);
 
           const charWidth = word.offsetWidth / chars.length;
           const x = wordRect.left - stickyRect.left + charIndex * charWidth;
@@ -198,7 +213,6 @@ const ExplosiveStory = () => {
 
           charSpan.style.left = `${x}px`;
           charSpan.style.top = `${y}px`;
-          charElements.push(charSpan);
 
           const body = Bodies.rectangle(
             x + charWidth / 2,
@@ -237,7 +251,7 @@ const ExplosiveStory = () => {
           Body.setAngularVelocity(body, 0);
 
           element.style.transform = "none";
-          element.style.opacity = 0;
+          element.style.opacity = "0";
         });
 
         words.forEach((word) => {
@@ -249,15 +263,14 @@ const ExplosiveStory = () => {
         });
       }
 
-      // Main timeline - This is the key fix
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: storyRef.current.parentElement,
+          trigger: ".sticky",
           start: "top top",
-          end: `+=${window.innerHeight * 4}px`, // 4 viewport heights of scroll
+          end: `+=${window.innerHeight * 4}px`,
           pin: true,
           scrub: true,
-          onUpdate: (self) => {
+          onUpdate: (self: { progress: number }) => {
             const isScrollingDown = self.progress > lastProgress;
             lastProgress = self.progress;
 
@@ -265,14 +278,12 @@ const ExplosiveStory = () => {
               physicsEnabled = true;
               engine.world.gravity.y = 1;
 
-              // Hide original highlighted words
               wordsToHighlight.forEach((word) => {
-                word.style.opacity = 0;
+                word.style.opacity = "0";
               });
 
-              // Show and animate characters
               charBodies.forEach(({ body, element }) => {
-                element.style.opacity = 1;
+                element.style.opacity = "1";
                 Body.setStatic(body, false);
                 Body.setAngularVelocity(body, (Math.random() - 0.5) * 0.25);
                 Body.setVelocity(body, {
@@ -281,7 +292,6 @@ const ExplosiveStory = () => {
                 });
               });
 
-              // Fade non-highlighted words
               gsap.to(
                 words.filter(
                   (word) =>
@@ -306,15 +316,11 @@ const ExplosiveStory = () => {
       // Phase 1: Random words turn red
       const phase1 = gsap.timeline();
       shuffledWords.forEach((word) => {
-        phase1.to(
-          word,
-          {
-            color: "#FF4D4D",
-            duration: 0.1,
-            ease: "power2.inOut",
-          },
-          Math.random() * 0.9
-        );
+        phase1.to(word, {
+          color: "#FF4D4D",
+          duration: 0.1,
+          ease: "power2.inOut",
+        }, Math.random() * 0.9);
       });
 
       // Phase 2: Highlight words turn teal
@@ -322,27 +328,19 @@ const ExplosiveStory = () => {
       const shuffledHighlights = [...wordsToHighlight];
       for (let i = shuffledHighlights.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [shuffledHighlights[i], shuffledHighlights[j]] = [
-          shuffledHighlights[j],
-          shuffledHighlights[i],
-        ];
+        [shuffledHighlights[i], shuffledHighlights[j]] = [shuffledHighlights[j], shuffledHighlights[i]];
       }
 
       shuffledHighlights.forEach((word) => {
-        phase2.to(
-          word,
-          {
-            color: "#4ECDC4",
-            duration: 0.1,
-            ease: "power2.inOut",
-          },
-          Math.random() * 0.9
-        );
+        phase2.to(word, {
+          color: "#4ECDC4",
+          duration: 0.1,
+          ease: "power2.inOut",
+        }, Math.random() * 0.9);
       });
 
       tl.add(phase1, 0).add(phase2, 1).to({}, { duration: 2 });
 
-      // Update character positions
       Events.on(engine, "afterUpdate", () => {
         charBodies.forEach(({ body, element, initialX, initialY }) => {
           if (physicsEnabled) {
@@ -354,48 +352,62 @@ const ExplosiveStory = () => {
       });
     };
 
-    initAnimation();
-
-    // Cleanup
     return () => {
-      if (window.ScrollTrigger) {
-        window.ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      if (typeof window !== 'undefined') {
+        const { ScrollTrigger } = window as any;
+        if (ScrollTrigger) {
+          ScrollTrigger.getAll().forEach((trigger: { kill: () => void }) => trigger.kill());
+        }
       }
     };
   }, []);
 
   return (
-    <section className="sticky-story relative w-full h-screen bg-[#0A0A0A] text-white overflow-hidden">
-      {/* Background Grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px]" />
-      
-      <div className="relative z-10 p-8 flex flex-col justify-center h-full">
-        <div className="max-w-4xl mx-auto">
-          <h3 className="text-5xl font-black font-NeueMontreal mb-12 text-center text-[#FF4D4D]">
-            Our Story
-          </h3>
-          <div 
-            ref={storyRef}
-            className="text-white text-lg leading-relaxed"
-            style={{ 
-              fontSize: '18px',
-              lineHeight: '1.8',
-              fontFamily: 'system-ui, -apple-system, sans-serif'
-            }}
-          >
-            We started Nuke because, honestly, we just didn't fit into the corporate world! Both of us started our careers in a Big 4 firm, but somewhere between endless reports and corporate calls, we knew this wasn't it. Swetha was the first to break free—she quit and joined a startup, where she juggled multiple verticals and got a taste of the fast-paced creative world. Meanwhile, Prabha was always the "fun guy" — the one cracking jokes, pulling off skits at culturals, and entertaining everyone with his out-of-the-box ideas. Sitting at a desk all day? Definitely not his thing. So, he quit too. With zero plans but a lot of excitement, we started freelancing. We worked with creators, and our first-ever collaboration was with our good friend Mano Chandru aka MC. From writing scripts to structuring webinars, we did it all. One gig led to another, and soon we were working with Cuts Coffee Shyam, then Hoodieguy, and many more. But freelancing had its share of struggles—late payments, inconsistent work, and most importantly, the unsung heroes behind the scenes never getting the recognition they deserved. So, we thought, "Why not build something bigger and better?" That's how Nuke was born. The name? Well, we wanted to create marketing that explodes and spreads like wildfire. Also, let's be honest, we just thought it sounded cool. But beyond the name, we wanted to set new standards in the industry—where everyone in our team gets the recognition they deserve, where payments are smooth and are on time and where creativity and quality come first, ensuring real value for both our clients and their audience. So yeah, that's our story. Now, let's create yours!
+    <div className="w-full">
+      {/* Intro */}
+      <section className="w-full h-screen bg-[#0A0A0A] text-white flex items-center justify-center relative overflow-hidden">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px]" />
+        
+        <div className="text-center max-w-4xl mx-auto relative z-10 px-6">
+          <h1 className="text-7xl font-black font-NeueMontreal leading-tight tracking-tight mb-8">
+            <span className="text-[#FF4D4D]">Let&apos;s Nuke</span> Your Brand&apos;s{" "}
+            <span className="text-[#4ECDC4]">Impact</span> Zone
+          </h1>
+          <p className="text-gray-300 text-xl">
+            We&apos;re not just another marketing squad. We&apos;re the strategic force that
+            makes your brand explode in the digital space. Time to go nuclear! 💥
+          </p>
+        </div>
+      </section>
+
+      {/* Story - Sticky */}
+      <section className="sticky relative w-full h-screen bg-[#0A0A0A] text-white overflow-hidden">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px]" />
+        
+        <div className="relative z-10 p-8 flex flex-col justify-center h-full">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-5xl font-black font-NeueMontreal mb-12 text-center text-[#FF4D4D]">
+              Our Story
+            </h2>
+            <div 
+              ref={storyRef}
+              className="text-white text-lg leading-relaxed"
+              style={{ 
+                fontSize: '18px',
+                lineHeight: '1.8',
+                fontFamily: 'system-ui, -apple-system, sans-serif'
+              }}
+            >
+              We started Nuke because, honestly, we just didn&apos;t fit into the corporate world! Both of us started our careers in a Big 4 firm, but somewhere between endless reports and corporate calls, we knew this wasn&apos;t it. Swetha was the first to break free—she quit and joined a startup, where she juggled multiple verticals and got a taste of the fast-paced creative world. Meanwhile, Prabha was always the &quot;fun guy&quot; — the one cracking jokes, pulling off skits at culturals, and entertaining everyone with his out-of-the-box ideas. Sitting at a desk all day? Definitely not his thing. So, he quit too. With zero plans but a lot of excitement, we started freelancing. We worked with creators, and our first-ever collaboration was with our good friend Mano Chandru aka MC. From writing scripts to structuring webinars, we did it all. One gig led to another, and soon we were working with Cuts Coffee Shyam, then Hoodieguy, and many more. But freelancing had its share of struggles—late payments, inconsistent work, and most importantly, the unsung heroes behind the scenes never getting the recognition they deserved. So, we thought, &quot;Why not build something bigger and better?&quot; That&apos;s how Nuke was born. The name? Well, we wanted to create marketing that explodes and spreads like wildfire. Also, let&apos;s be honest, we just thought it sounded cool. But beyond the name, we wanted to set new standards in the industry—where everyone in our team gets the recognition they deserve, where payments are smooth and are on time and where creativity and quality come first, ensuring real value for both our clients and their audience. So yeah, that&apos;s our story. Now, let&apos;s create yours!
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-  );
-};
+      </section>
 
-export default function About() {
-  return (
-    <div className="w-full">
-      {/* Intro Section */}
-      <section className="w-full min-h-screen bg-[#0A0A0A] text-white py-32 px-6 sm:px-4 rounded-t-[40px] z-20 relative rounded-xl overflow-hidden flex items-center justify-center">
+
+
+      {/* Enhanced Brand Section - After Story */}
+      <section className="w-full bg-[#0A0A0A] text-white py-32 px-6 sm:px-4 rounded-t-[40px] z-20 relative rounded-xl overflow-hidden">
         {/* Background Grid */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px]" />
 
@@ -413,7 +425,8 @@ export default function About() {
           }}
         />
 
-        <div className="text-center max-w-4xl mx-auto relative z-10">
+        {/* Header Section */}
+        <div className="text-center max-w-4xl mx-auto relative z-10 mb-32">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -436,8 +449,8 @@ export default function About() {
                 ease: "easeInOut"
               }}
             >
-              Let's Nuke
-            </motion.span> Your Brand's
+              Let&apos;s Nuke
+            </motion.span> Your Brand&apos;s
             <motion.span
               className="text-[#4ECDC4] inline-block"
               animate={{
@@ -466,174 +479,37 @@ export default function About() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-gray-300 text-xl font-light max-w-2xl mx-auto leading-relaxed"
           >
-            We're not just another marketing squad. We're the strategic force that
+            We&apos;re not just another marketing squad. We&apos;re the strategic force that
             makes your brand explode in the digital space. Time to go nuclear! 💥
           </motion.p>
         </div>
-      </section>
 
-      {/* Explosive Story Section - Completely Isolated */}
-      <ExplosiveStory />
-
-      {/* All Other Content - Flows Right After Story */}
-      <section className="w-full bg-[#0A0A0A] text-white py-32 px-6 sm:px-4 relative">
-        {/* Background Grid */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px]" />
-
-        {/* Why NUKE Section */}
-        <div className="w-full max-w-6xl mx-auto relative z-10 mb-32">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h3 className="text-5xl font-black font-NeueMontreal mb-8 text-[#4ECDC4]">
-              Why NUKE?
-            </h3>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              className="bg-gradient-to-br from-[#FF4D4D]/10 to-transparent rounded-2xl p-8 border border-[#FF4D4D]/20"
-            >
-              <div className="flex items-center gap-4 mb-6">
-                <Zap className="text-[#FF4D4D]" size={32} />
-                <h4 className="text-2xl font-bold text-[#FF4D4D]">Discovery & Strategy</h4>
-              </div>
-              <p className="text-gray-300 leading-relaxed">
-                First things first, we hop on a <strong>discovery call</strong>—not just to tick a box, 
-                but to truly understand what makes you and your brand tick. What's your story? What problems 
-                are you solving? And most importantly, what value are you bringing to the table?
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-gradient-to-br from-[#4ECDC4]/10 to-transparent rounded-2xl p-8 border border-[#4ECDC4]/20"
-            >
-              <div className="flex items-center gap-4 mb-6">
-                <Target className="text-[#4ECDC4]" size={32} />
-                <h4 className="text-2xl font-bold text-[#4ECDC4]">Work Mode Activated</h4>
-              </div>
-              <p className="text-gray-300 leading-relaxed">
-                Once we have this foundation, we get to <strong>work mode</strong>—breaking down ideas, 
-                brainstorming solutions, and doing a little bit of <em>spying</em> (aka competitor analysis). 
-                We also dig into industry trends to figure out what works and, more importantly, what doesn't.
-              </p>
-            </motion.div>
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-12 bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10"
-          >
-            <div className="text-center space-y-6">
-              <p className="text-xl text-gray-300">
-                Here's the thing: <strong className="text-[#FF4D4D]">we don't believe in putting out content just for the sake of it.</strong> 
-                No unnecessary fluff, no random posts that go nowhere—just <strong className="text-[#4ECDC4]">strategic, 
-                high-quality storytelling</strong> that actually connects with people.
-              </p>
-              <p className="text-xl text-gray-300">
-                But the real game-changer? <strong className="text-[#FF4D4D]">Consistency.</strong> We don't just create great 
-                content and leave you hanging. We make sure you show up, stay accountable, and build a brand 
-                that people recognize and trust.
-              </p>
-              <p className="text-2xl font-bold text-white">
-                At NUKE, we don't do <em>generic</em>. <span className="text-[#4ECDC4]">We make you unforgettable.</span> 
-                Not just another name in the crowd, but a brand that <span className="text-[#FF4D4D]">demands attention.</span>
-              </p>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Mission & Vision Section */}
-        <div className="w-full max-w-6xl mx-auto relative z-10 mb-32">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h3 className="text-5xl font-black font-NeueMontreal mb-8">
-              <span className="text-[#FF4D4D]">NUKE's</span> Mission & Vision
-            </h3>
-          </motion.div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        {/* Main Content */}
+        <div className="w-full max-w-7xl mx-auto relative z-10 mb-32">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Left Section - Enhanced Video */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               className="relative"
             >
-              <div className="absolute -top-4 -left-4 w-full h-full bg-[#FF4D4D]/10 rounded-2xl"></div>
-              <div className="relative bg-[#0A0A0A] border-2 border-[#FF4D4D] rounded-2xl p-8">
-                <div className="flex items-center gap-4 mb-6">
-                  <Target className="text-[#FF4D4D]" size={40} />
-                  <h4 className="text-3xl font-bold text-[#FF4D4D]">Mission</h4>
-                </div>
-                <p className="text-gray-300 text-lg leading-relaxed">
-                  We're here to <strong className="text-white">redefine marketing</strong>—no fluff, no boring content, 
-                  just <strong className="text-[#FF4D4D]">bold strategies and creative storytelling that actually work.</strong> 
-                  We help brands, businesses, and creators stand out, connect, and make an impact.
-                </p>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative"
-            >
-              <div className="absolute -top-4 -right-4 w-full h-full bg-[#4ECDC4]/10 rounded-2xl"></div>
-              <div className="relative bg-[#0A0A0A] border-2 border-[#4ECDC4] rounded-2xl p-8">
-                <div className="flex items-center gap-4 mb-6">
-                  <Eye className="text-[#4ECDC4]" size={40} />
-                  <h4 className="text-3xl font-bold text-[#4ECDC4]">Vision</h4>
-                </div>
-                <p className="text-gray-300 text-lg leading-relaxed">
-                  NUKE is more than marketing; it's a movement. We aim to <strong className="text-[#4ECDC4]">turn brands 
-                  into unforgettable names,</strong> while giving credit to the creative minds behind the scenes. 
-                  Marketing should be <strong className="text-white">fun, effective, and never generic.</strong> Let's make it happen!
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-
-        {/* Main Content - Video & Strategy */}
-        <div className="w-full max-w-6xl mx-auto relative z-10 mb-32">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-24">
-            {/* Left Section */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              className="space-y-12"
-            >
-              <div className="relative" style={{ width: '600px', height: '400px' }}>
+              <div className="relative w-full h-96 rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
                 <video
                   src="/nuke.mp4"
                   autoPlay
                   loop
                   muted
-                  className="object-cover rounded-2xl"
+                  playsInline
+                  className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-2xl" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                
                 {/* Nuclear Glow Effect */}
                 <motion.div
-                  className="absolute inset-0 bg-[#FF4D4D]/10 rounded-2xl"
+                  className="absolute inset-0 bg-[#FF4D4D]/10 rounded-3xl"
                   animate={{
-                    opacity: [0.1, 0.2, 0.1],
+                    opacity: [0.1, 0.3, 0.1],
                   }}
                   transition={{
                     duration: 2,
@@ -641,41 +517,68 @@ export default function About() {
                     ease: "easeInOut"
                   }}
                 />
+                
+                {/* Floating particles effect */}
+                <div className="absolute inset-0 pointer-events-none">
+                  {[...Array(6)].map((_, i) => (
+                    <motion.div
+                      key={i}
+                      className="absolute w-2 h-2 bg-[#4ECDC4] rounded-full opacity-60"
+                      animate={{
+                        x: [0, 100, 0],
+                        y: [0, -50, 0],
+                        opacity: [0, 1, 0],
+                      }}
+                      transition={{
+                        duration: 3 + i * 0.5,
+                        repeat: Infinity,
+                        delay: i * 0.5,
+                        ease: "easeInOut"
+                      }}
+                      style={{
+                        left: `${20 + i * 15}%`,
+                        top: `${60 + i * 5}%`,
+                      }}
+                    />
+                  ))}
+                </div>
               </div>
             </motion.div>
 
-            {/* Right Section */}
-            <div className="space-y-16">
-              {/* Strategy Points */}
+            {/* Right Section - Strategy Points */}
+            <div className="space-y-12">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="space-y-12"
+                className="space-y-10"
               >
                 {/* Strategy Point 1 */}
                 <motion.div
-                  className="flex items-start gap-8"
-                  whileHover={{ scale: 1.02 }}
+                  className="group flex items-start gap-6 p-6 rounded-2xl bg-gradient-to-r from-[#FF4D4D]/5 to-transparent border border-[#FF4D4D]/20 backdrop-blur-sm hover:from-[#FF4D4D]/10 transition-all duration-300"
+                  whileHover={{ scale: 1.02, x: 10 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
                   <motion.div
+                    className="flex-shrink-0 p-3 rounded-full bg-[#FF4D4D]/10 border border-[#FF4D4D]/30"
                     animate={{
                       rotate: [0, 360],
                     }}
                     transition={{
-                      duration: 2,
+                      duration: 8,
                       repeat: Infinity,
                       ease: "linear"
                     }}
                   >
-                    <Star className="text-[#FF4D4D]" size={40} strokeWidth={2.5} />
+                    <Star className="text-[#FF4D4D]" size={32} strokeWidth={2.5} />
                   </motion.div>
-                  <div>
-                    <h4 className="text-3xl font-bold mb-6 text-[#FF4D4D]">Nuclear-Grade Strategy</h4>
-                    <p className="text-gray-300 text-lg leading-relaxed">
+                  <div className="flex-1">
+                    <h4 className="text-2xl font-bold mb-4 text-[#FF4D4D] group-hover:text-[#FF6B6B] transition-colors">
+                      Nuclear-Grade Strategy
+                    </h4>
+                    <p className="text-gray-300 text-lg leading-relaxed group-hover:text-white transition-colors">
                       From explosive social media content to full-scale marketing campaigns,
-                      we're all about maximum impact. Our squad combines creative firepower
+                      we&apos;re all about maximum impact. Our squad combines creative firepower
                       with data precision to make your brand detonate in the market.
                     </p>
                   </div>
@@ -683,27 +586,30 @@ export default function About() {
 
                 {/* Strategy Point 2 */}
                 <motion.div
-                  className="flex items-start gap-8"
-                  whileHover={{ scale: 1.02 }}
+                  className="group flex items-start gap-6 p-6 rounded-2xl bg-gradient-to-r from-[#4ECDC4]/5 to-transparent border border-[#4ECDC4]/20 backdrop-blur-sm hover:from-[#4ECDC4]/10 transition-all duration-300"
+                  whileHover={{ scale: 1.02, x: 10 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
                   <motion.div
+                    className="flex-shrink-0 p-3 rounded-full bg-[#4ECDC4]/10 border border-[#4ECDC4]/30"
                     animate={{
                       rotate: [0, 360],
                     }}
                     transition={{
-                      duration: 2,
+                      duration: 8,
                       repeat: Infinity,
                       ease: "linear",
                       delay: 0.5
                     }}
                   >
-                    <Star className="text-[#4ECDC4]" size={40} strokeWidth={2.5} />
+                    <Star className="text-[#4ECDC4]" size={32} strokeWidth={2.5} />
                   </motion.div>
-                  <div>
-                    <h4 className="text-3xl font-bold mb-6 text-[#4ECDC4]">Chain Reaction Success</h4>
-                    <p className="text-gray-300 text-lg leading-relaxed">
-                      We're not just another agency - we're your brand's power source.
+                  <div className="flex-1">
+                    <h4 className="text-2xl font-bold mb-4 text-[#4ECDC4] group-hover:text-[#6EDDD6] transition-colors">
+                      Chain Reaction Success
+                    </h4>
+                    <p className="text-gray-300 text-lg leading-relaxed group-hover:text-white transition-colors">
+                      We&apos;re not just another agency - we&apos;re your brand&apos;s power source.
                       We trigger trends, track engagement metrics, and keep the momentum
                       building. Our mission? Make your brand the center of attention.
                     </p>
@@ -711,29 +617,40 @@ export default function About() {
                 </motion.div>
               </motion.div>
 
-              {/* Social Links */}
+              {/* Enhanced Social Links */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="pt-8 pb-10 border-t border-white/10"
+                className="pt-8 pb-6 border-t border-white/10"
               >
-                <h1 className="text-2xl font-bold text-white font-NeueMontreal mb-8">
+                <h3 className="text-2xl font-bold text-white font-NeueMontreal mb-8 flex items-center gap-3">
                   Ready to Launch Your Brand?
-                </h1>
-                <div className="flex gap-8">
+                  <motion.span
+                    animate={{ rotate: [0, 15, -15, 0] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
+                    🚀
+                  </motion.span>
+                </h3>
+                <div className="flex flex-wrap gap-4">
                   {socialLinks.map((item) => (
                     <motion.a
                       key={item.id}
                       href={item.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group flex items-center gap-3 text-lg text-gray-400 hover:text-[#4ECDC4] transition-all duration-300"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
+                      className="group flex items-center gap-3 px-6 py-3 text-lg text-gray-400 hover:text-white bg-white/5 hover:bg-[#4ECDC4]/20 border border-white/10 hover:border-[#4ECDC4]/50 rounded-full transition-all duration-300"
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      whileTap={{ scale: 0.98 }}
                     >
-                      {item.icon}
-                      <span>{item.title}</span>
+                      <motion.div
+                        whileHover={{ rotate: 360 }}
+                        transition={{ duration: 0.5 }}
+                      >
+                        {item.icon}
+                      </motion.div>
+                      <span className="font-medium">{item.title}</span>
                     </motion.a>
                   ))}
                 </div>
@@ -742,10 +659,65 @@ export default function About() {
           </div>
         </div>
 
-        {/* Logo Cloud */}
-        <div>
+        {/* Enhanced Logo Cloud */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="relative z-10"
+        >
+          <div className="text-center mb-12">
+            <h3 className="text-2xl font-bold text-gray-400 mb-4">Trusted by Industry Leaders</h3>
+            <div className="w-24 h-1 bg-gradient-to-r from-[#FF4D4D] to-[#4ECDC4] mx-auto rounded-full"></div>
+          </div>
           <LogoCloud />
+        </motion.div>
+      </section>
+      <section className="w-full bg-[#0A0A0A] text-white py-32 px-6 relative">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px]" />
+
+        {/* Why NUKE Section */}
+        <div className="w-full max-w-6xl mx-auto relative z-10 mb-32">
+          <div className="text-center mb-16">
+            <h3 className="text-5xl font-black font-NeueMontreal mb-8 text-[#4ECDC4]">
+              Why NUKE?
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div className="bg-gradient-to-br from-[#FF4D4D]/10 to-transparent rounded-2xl p-8 border border-[#FF4D4D]/20">
+              <div className="flex items-center gap-4 mb-6">
+                <Zap className="text-[#FF4D4D]" size={32} />
+                <h4 className="text-2xl font-bold text-[#FF4D4D]">Discovery & Strategy</h4>
+              </div>
+              <p className="text-gray-300">
+                First things first, we hop on a <strong>discovery call</strong>—not just to tick a box, 
+                but to truly understand what makes you and your brand tick.
+              </p>
+            </div>
+
+            <div className="bg-gradient-to-br from-[#4ECDC4]/10 to-transparent rounded-2xl p-8 border border-[#4ECDC4]/20">
+              <div className="flex items-center gap-4 mb-6">
+                <Target className="text-[#4ECDC4]" size={32} />
+                <h4 className="text-2xl font-bold text-[#4ECDC4]">Work Mode Activated</h4>
+              </div>
+              <p className="text-gray-300">
+                Once we have this foundation, we get to <strong>work mode</strong>—breaking down ideas, 
+                brainstorming solutions, and doing competitor analysis.
+              </p>
+            </div>
+          </div>
+
+          <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+            <div className="text-center space-y-6">
+              <p className="text-xl text-gray-300">
+                At NUKE, we don&apos;t do <em>generic</em>. <span className="text-[#4ECDC4]">We make you unforgettable.</span>
+              </p>
+            </div>
+          </div>
         </div>
+
+        <LogoCloud />
       </section>
     </div>
   );
