@@ -1,4 +1,5 @@
-import { project1, project2, project3 } from "@/public";
+import { eyes } from "@/public";
+
 
 
 // Navbar
@@ -9,14 +10,10 @@ export const navbarItems = [
       title: "Services",
       href: "/services",
    },
-   {
-      id: 1,
-      title: "Core",
-      href: "/core",
-   },
+  
    {
       id: 2,
-      title: "Crafts",
+      title: "Portfolio",
       href: "/nuke-works",
    },
    {
@@ -37,7 +34,7 @@ export const navbarItems = [
    },
    {
       id: 6,
-      title: "playground",
+      title: " Playground",
       href: "/playground",
    },
 ];
@@ -91,7 +88,7 @@ export const footernavbarItems = [
    },
    {
       id: 7,
-      title: "playground",
+      title: "Playground",
       href: "playground",
    },
 ];
@@ -333,7 +330,7 @@ export const projectItem = [
       id: 1,
       title: "Kalpana Creations",
       href: "/case/",
-      src: project1,
+      src: eyes,
       links: [
          {
             id: 1,
@@ -361,7 +358,7 @@ export const projectItem = [
       id: 2,
       title: "Vedant Studios",
       href: "/case/",
-      src: project2,
+      src: eyes,
       links: [
          {
             id: 1,
@@ -379,7 +376,7 @@ export const projectItem = [
       id: 3,
       title: "Aryavarta Designs",
       href: "/case/",
-      src: project3,
+      src: eyes,
       links: [
          {
             id: 1,
@@ -862,7 +859,7 @@ export const presentationProjectItem = [
    {
       id: 1,
       title: "Amuthasurabhi",
-      src: project1,
+      src: eyes,
       href: "/case/",
       links: [
          {
@@ -890,7 +887,7 @@ export const presentationProjectItem = [
    {
       id: 2,
       title: "Amuthasurabhi",
-      src: project3,
+      src: eyes,
       href: "/case/",
       links: [
          {
@@ -987,7 +984,7 @@ export const presentationProjectItem = [
    {
       id: 6,
       title: "vise",
-      src: project2,
+      src: eyes,
       href: "/case/",
       links: [
          {

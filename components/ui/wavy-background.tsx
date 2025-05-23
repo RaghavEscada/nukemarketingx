@@ -75,7 +75,7 @@ export const WavyBackground = ({
     const ctx = ctxRef.current;
     if (!ctx) return;
 
-    ctx.fillStyle = backgroundFill || "white";
+    ctx.fillStyle = backgroundFill || "black";
     ctx.globalAlpha = waveOpacity || 0.5;
     ctx.fillRect(0, 0, dimensionsRef.current.w, dimensionsRef.current.h);
     drawWave(5);

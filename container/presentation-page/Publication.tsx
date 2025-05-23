@@ -1,16 +1,11 @@
 import Image from "next/image";
-import { Marquee } from "@/components";
+
 import { publicationItems } from "@/constants";
 
 export default function Publication() {
 	return (
 		<section className="w-full bg-slate-900 padding-y rounded-t-[20px] mt-[-10px] z-30 relative">
-			<div className="w-full z-10 relative">
-				<Marquee
-					title="#Bombin'"
-					className="pb-[50px] lg:pb-[40px] md:pb-[30px] sm:pb-[20px] xm:pb-[15px] text-[540px] leading-[330px] lg:text-[380px] lg:leading-[240px] md:text-[300px] md:leading-[160px] sm:text-[230px] sm:leading-[140px] xm:text-[130px] xm:leading-[80px]"
-				/>
-			</div>
+		
 			<div className="w-full padding-x">
 				<div className="w-full flex justify-between pt-[20px] sm:flex-col xm:flex-col gap-y-[20px]">
 					{/* <div className="w-[30%] sm:w-full xm:w-full">

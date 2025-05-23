@@ -15,27 +15,21 @@ interface Game {
 const games: Game[] = [
     { 
         id: 1, 
-        name: "Game 1", 
+        name: "Kids Chaos", 
         scene: "https://prod.spline.design/s5VgRsBwm7mq-Wqm/scene.splinecode",
-        image: "/nuke.png",
+        image: "/p1.png",
     },
     { 
         id: 2, 
-        name: "Game 2", 
-        scene: "https://prod.spline.design/G46bcMRddu7fV2GY/scene.splinecode",
-        image: "/nuke.png"
+        name: "Truck Boy", 
+        scene: "https://prod.spline.design/kq0Sk-NbtEC7Gdkc/scene.splinecode",
+        image: "/p2.png"
     },
     { 
         id: 3, 
-        name: "Game 3", 
-        scene: "https://prod.spline.design/kq0Sk-NbtEC7Gdkc/scene.splinecode",
-        image: "/nuke.png"
-    },
-    { 
-        id: 4, 
-        name: "Game 4", 
-        scene: "https://prod.spline.design/yxjkoyT5oby9JLPy/scene.splinecode",
-        image: "/nuke.png"
+        name: "Vespa Girl", 
+        scene: "https://prod.spline.design/Z-OhaEXZh6qsk8Do/scene.splinecode",
+        image: "/p3.png"
     },
 ];
 
@@ -48,43 +42,63 @@ export default function Home() {
         return <GameView game={selectedGame} onBack={() => setSelectedGame(null)} />;
     }
     
-    // Otherwise render the game selection screen
     return (
-        <main className="w-screen h-screen bg-black overflow-auto">
-            {/* Simple grid background */}
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px]" />
-            
-            {/* Header */}
-            <div className="py-6 text-center">
-                <h1 className="text-white text-3xl font-bold">SELECT GAME</h1>
-            </div>
-            
-            {/* Game Grid */}
-            <div className="max-w-4xl mx-auto p-4 grid grid-cols-2 gap-6">
-                {games.map((game) => (
-                    <button 
-                        key={game.id}
-                        onClick={() => setSelectedGame(game)}
-                        className="block relative overflow-hidden bg-white/5 
-                                 transition-all duration-200 hover:bg-white/10
-                                 border border-white/10 rounded-lg aspect-square
-                                 text-left cursor-pointer"
-                    >
-                        <Image
-                            src={game.image}
-                            alt={game.name}
-                            fill
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                            priority
-                            quality={80}
-                            className="object-cover"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80" />
-                        <div className="absolute bottom-0 left-0 p-4">
-                            <h2 className="text-xl font-bold text-white">{game.name}</h2>
-                        </div>
-                    </button>
-                ))}
+        <main className="w-screen h-screen pt-24 bg-black p-4">
+            {/* Creative layout for 3 games */}
+            <div className="max-w-6xl mx-auto h-[calc(100vh-120px)] relative">
+                {/* Game 1 - Large left side */}
+                <button 
+                    onClick={() => setSelectedGame(games[0])}
+                    className="absolute top-0 left-0 w-[60%] h-full bg-gray-800 hover:bg-gray-700
+                             transition-colors rounded-lg overflow-hidden group"
+                >
+                    <Image
+                        src={games[0].image}
+                        alt={games[0].name}
+                        fill
+                        className="object-cover opacity-60 group-hover:opacity-80"
+                    />
+                    <div className="absolute inset-0 " />
+                    <div className="absolute bottom-4 left-4">
+                        <h2 className="text-white text-2xl font-bold">{games[0].name}</h2>
+                    </div>
+                </button>
+                
+                {/* Game 2 - Top right */}
+                <button 
+                    onClick={() => setSelectedGame(games[1])}
+                    className="absolute top-0 right-0 w-[38%] h-[48%] bg-gray-800 hover:bg-gray-700
+                             transition-colors rounded-lg overflow-hidden group"
+                >
+                    <Image
+                        src={games[1].image}
+                        alt={games[1].name}
+                        fill
+                        className="object-cover opacity-60 group-hover:opacity-80"
+                    />
+                    <div className="absolute inset-0 " />
+                    <div className="absolute bottom-4 left-4">
+                        <h2 className="text-white text-xl font-bold">{games[1].name}</h2>
+                    </div>
+                </button>
+                
+                {/* Game 3 - Bottom right */}
+                <button 
+                    onClick={() => setSelectedGame(games[2])}
+                    className="absolute bottom-0 right-0 w-[38%] h-[48%] bg-gray-800 hover:bg-gray-700
+                             transition-colors rounded-lg overflow-hidden group"
+                >
+                    <Image
+                        src={games[2].image}
+                        alt={games[2].name}
+                        fill
+                        className="object-cover opacity-60 group-hover:opacity-80"
+                    />
+                    <div className="absolute inset-0 " />
+                    <div className="absolute bottom-4 left-4">
+                        <h2 className="text-white text-xl font-bold">{games[2].name}</h2>
+                    </div>
+                </button>
             </div>
         </main>
     );
@@ -105,7 +119,7 @@ function GameView({ game, onBack }: GameViewProps) {
                 <div className="absolute inset-0 flex items-center justify-center bg-black z-50">
                     <div className="text-center">
                         <div className="text-white text-xl mb-4">LOADING...</div>
-                        <div className="text-white/40 text-sm space-y-1">
+                        <div className="text-white/60 text-sm space-y-1">
                             <p>CLICK + DRAG - ROTATE</p>
                             <p>WASD - MOVE</p>
                             <p>↑↓ - CAMERA</p>
@@ -123,8 +137,8 @@ function GameView({ game, onBack }: GameViewProps) {
             <button 
                 onClick={onBack}
                 className="absolute top-4 left-4 z-50 px-4 py-2 rounded
-                         text-white bg-black/40 backdrop-blur-sm
-                         border border-white/20 hover:bg-black/60"
+                         text-white bg-black/50 hover:bg-black/70
+                         border border-white/20 transition-colors"
             >
                 ← BACK
             </button>

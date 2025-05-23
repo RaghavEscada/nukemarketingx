@@ -18,11 +18,11 @@ export default function Ready() {
 
 	return (
 		<section
-			className="w-full text-red-500 relative font-['Gilda_Display'] z-30 min-h-screen sm:h-screen xm:h-screen bg-black padding-y rounded-t-[20px] mt-[-20px]"
+			className="w-full text-secondary relative font-['Gilda_Display'] z-30 min-h-screen sm:h-screen xm:h-screen bg-black padding-y rounded-t-[20px] mt-[-20px]"
 			ref={container}>
 			<div className="w-full h-full flex justify-center gap-[50px] items-center flex-col">
 				<div className="flex flex-col gap-[10px]">
-					<h1 className="text-[20px] font-['Gilda_Display'] italic leading-[230px] lg:text-[220px] lg:leading-[170px] md:text-[180px] md:leading-[140px] sm:text-[120px] sm:leading-[90px] xm:text-[80px] xm:leading-[60px] tracking-[-2.5px] text-center font-bold text-red-600 uppercase pointer-events-none">
+					<h1 className="text-[20px] font-['Gilda_Display'] leading-[230px] lg:text-[220px] lg:leading-[170px] md:text-[180px] md:leading-[140px] sm:text-[120px] sm:leading-[90px] xm:text-[80px] xm:leading-[60px] tracking-[-2.5px] text-center font-bold text-white uppercase pointer-events-none">
 						<TextMask>{phrase}</TextMask>
 					</h1>
 				</div>
