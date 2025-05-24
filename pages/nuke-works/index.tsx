@@ -1,7 +1,8 @@
 import { useEffect, useRef } from "react";
 import { Curve, Ready } from "@/components";
-import { Hero, Projectspresentation } from "@/container";
+
 import { LampDemoCraft } from "@/data/data";
+import { X } from "@/container";
 
 export default function Presentation() {
 
@@ -27,8 +28,9 @@ export default function Presentation() {
         <Curve backgroundColor={"#f1f1f1"}>
         
           <LampDemoCraft />
-          <Projectspresentation />
+          
           <Ready />
+          <X/>
         </Curve>
       </div>
     </>

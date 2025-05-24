@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-import { publicationItems } from "@/constants";
 
 export default function Publication() {
 	return (

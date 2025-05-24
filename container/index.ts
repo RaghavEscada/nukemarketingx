@@ -16,9 +16,7 @@ export { default as Expectations } from "./services-page/Expectations";
 export { default as Archive } from "./services-page/Archive";
 
 // presentation page
-export { default as Heropresentation } from './presentation-page/Hero';
-export { default as Projectspresentation } from './presentation-page/Projects';
-export { default as Publication } from './presentation-page/Publication';
+
 
 // aboute page
 export { default as Heroabout } from './about-page/Hero';

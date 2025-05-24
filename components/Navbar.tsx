@@ -329,20 +329,6 @@ export default function Navbar() {
               rgba(0,0,0,0.9) 100%)`
           }}
         />
-        
-        {/* Animated top border */}
-        <motion.div 
-          className="absolute top-0 left-0 h-px bg-white"
-          animate={{ 
-            width: ["0%", "100%", "0%"],
-            x: ["0%", "0%", "100%"]
-          }}
-          transition={{ 
-            duration: 8, 
-            repeat: Infinity, 
-            ease: "easeInOut"
-          }}
-        />
 
         <div className="relative z-10 h-full flex items-center justify-between">
           {/* Creative Logo Section */}
@@ -502,19 +488,6 @@ export default function Navbar() {
             </motion.button>
           </div>
         </div>
-
-        {/* Bottom creative border */}
-        <motion.div 
-          className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white to-transparent opacity-30"
-          animate={{
-            opacity: [0.1, 0.5, 0.1]
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
       </motion.nav>
       
       {/* Audio elements */}

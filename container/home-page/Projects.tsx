@@ -1,4 +1,4 @@
-import { projectItem } from "@/constants";
+
 import { Heading, ProjectCard, RoundButton, Tags } from "@/components";
 import { FeaturesSectionDemo } from "@/components/ui/bentogrid";
 
@@ -13,34 +13,8 @@ export default function Projects() {
 			/>
 
 			{/* Projects List */}
-			<div className="w-full flex justify-between gap-y-[50px] padding-x padding-y flex-wrap">
-				{projectItem.map((item) => (
-					<div className="w-[49%] sm:w-full xm:w-full" key={item.id}>
-						{/* Project Title */}
-						<div className="flex gap-[10px] items-center pb-[10px]">
-							<span className="w-[10px] h-[10px] rounded-full bg-secondry" />
-							<h1 className="small-text uppercase font-medium font-NeueMontreal text-secondry">
-								{item.title}
-							</h1>
-						</div>
+			
 
-						{/* Project Card */}
-						<ProjectCard item={item} key={item.id} />
-
-						{/* Project Links */}
-						<div className="flex items-center gap-[10px] mt-[20px] flex-wrap">
-							{item.links.map((link) => (
-								<Tags
-									className="hover:text-white"
-									bgcolor="#212121"
-									item={link}
-									key={link.id}
-								/>
-							))}
-						</div>
-					</div>
-				))}
-			</div>
 
 			{/* Button Section */}
 			<div className="w-full flex justify-center mt-10">

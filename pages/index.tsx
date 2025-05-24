@@ -2,7 +2,6 @@
 import { Curve,Ready } from "@/components";
 import { About, Clients, Hero, Projects, VideoHome, X } from "@/container";
 import { useEffect, useRef } from "react";
-
 export default function Home() {
 
 	
@@ -18,6 +17,7 @@ export default function Home() {
 			
 				<About />
 			
+		
 				<X />
 				<Projects />
 				<Clients />
