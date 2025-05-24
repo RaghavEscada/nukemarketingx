@@ -13,7 +13,7 @@ const routes = {
 	"/contact": "Create. Refine. Repeat.",
 	"/case": "Workiz Easy",
 	"/core":"Scroll to check out our core expertise.",
-	"/playground" : "click and drag!"
+	"/playground" : "It's Play Time!"
 };
 
 const anim = (variants) => {

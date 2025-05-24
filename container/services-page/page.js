@@ -7,18 +7,18 @@ import Lenis from '@studio-freight/lenis';
 import { useTransform, useScroll, motion } from 'framer-motion';
 
 const images = [
-  'img1.jpeg',
-  'img2.jpeg',
-  'img3.jpeg',
-  'img1.jpeg',
-  'img2.jpeg',
-  'img3.jpeg',
-  'img1.jpeg',
-  'img2.jpeg',
-  'img3.jpeg',
-  'img1.jpeg',
-  'img2.jpeg',
-  'img3.jpeg',
+  's1.webp',
+  's2.webp',
+  's3.webp',
+  's4.webp',
+  's5.webp',
+  's6.webp',
+  's7.webp',
+  's8.webp',
+  's9.webp',
+  's10.webp',
+  's11.webp',
+  's12.webp'
 ];
 
 export default function Home() {

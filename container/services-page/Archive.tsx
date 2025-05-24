@@ -1,14 +1,4 @@
-"use client";
-import Image from "next/image";
-import { Star, Instagram, Linkedin, MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
-import StyledSection from "./page";
-
-const socialLinks = [
-  { id: 1, title: "Instagram", href: "https://instagram.com", icon: <Instagram size={20} /> },
-  { id: 2, title: "LinkedIn", href: "https://linkedin.com", icon: <Linkedin size={20} /> },
-  { id: 3, title: "WhatsApp", href: "https://wa.me/yourphonenumber", icon: <MessageCircle size={20} /> },
-];
 
 const logos = [
   {
@@ -16,7 +6,7 @@ const logos = [
     url: "https://svgl.app/library/babel.svg",
   },
   {
-    name: "Ngrok",
+    name: "Ngrok", 
     url: "https://svgl.app/library/ngrok-light.svg",
   },
   {
@@ -37,33 +27,63 @@ const logos = [
   },
 ];
 
-const LogoCloud = () => {
+const MinimalLogoCloud = () => {
   return (
-    <div className="w-full py-12">
-      <div className="mx-auto w-full px-2 md:px-4">
+    <div className="w-full py-20">
+      <style jsx>{`
+        @keyframes logo-cloud {
+          from {
+            transform: translateX(0);
+          }
+          to {
+            transform: translateX(calc(-100% - 3rem));
+          }
+        }
+        
+        .animate-logo-cloud {
+          animation: logo-cloud 20s linear infinite;
+        }
+      `}</style>
+      
+      <div className="mx-auto w-full px-4">
+        <motion.h3 
+          className="text-center text-sm font-light text-zinc-500 tracking-wide uppercase mb-12"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+        >
+          Trusted Partners
+        </motion.h3>
+        
         <div
-          className="group relative mt-6 flex gap-6 overflow-hidden p-2"
+          className="relative flex gap-8 overflow-hidden py-4"
           style={{
             maskImage:
-              "linear-gradient(to left, transparent 0%, black 20%, black 80%, transparent 95%)",
+              "linear-gradient(to left, transparent 0%, black 15%, black 85%, transparent 100%)",
           }}
         >
-          {Array(5)
+          {Array(3)
             .fill(null)
-            .map((index) => (
-              <div
+            .map((_, index) => (
+              <motion.div
                 key={index}
-                className="flex shrink-0 animate-logo-cloud flex-row justify-around gap-6"
+                className="flex shrink-0 animate-logo-cloud flex-row justify-around gap-12"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 1, delay: index * 0.1 }}
               >
                 {logos.map((logo, key) => (
-                  <img
-                    key={key}
-                    src={logo.url}
-                    className="h-30 w-32 px-2"
-                    alt={logo.name}
-                  />
+                  <div key={key} className="group relative">
+                    <div className="relative bg-zinc-950/30 border border-zinc-800/30 rounded-lg p-4 hover:border-zinc-700/50 transition-all duration-300">
+                      <img
+                        src={logo.url}
+                        className="h-6 w-auto opacity-90 hover:opacity-100 transition-opacity duration-300"
+                        alt={logo.name}
+                      />
+                    </div>
+                  </div>
                 ))}
-              </div>
+              </motion.div>
             ))}
         </div>
       </div>
@@ -71,231 +91,198 @@ const LogoCloud = () => {
   );
 };
 
-
 export default function About() {
   return (
-    <section className="w-full bg-[#0A0A0A] text-white py-32 px-6 sm:px-4 rounded-t-[40px] z-20 relative rounded-xl overflow-hidden">
-      {/* Background Grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px]" />
+    <div className="w-full min-h-screen bg-black text-white relative">
+      {/* Hero Section */}
+      <div className="max-w-6xl mx-auto px-6 pt-24 pb-20">
+        {/* Main Hook */}
+        <div className="space-y-20 mb-40">
+          <div className="relative">
+            <h1 className="text-7xl md:text-8xl lg:text-9xl font-light tracking-tight leading-none">
+              Your audience is
+              <br />
+              <span className="text-zinc-400 font-light">scrolling.</span>
+              <br />
+              <span className="text-zinc-500 font-light">Are they stopping?</span>
+            </h1>
+            
+            {/* Simple line decoration */}
+            <div className="absolute top-1/2 -right-12 w-20 h-[1px] bg-white/30" />
+          </div>
+          
+          <div className="flex items-center gap-6 ml-2">
+            <div className="w-16 h-[1px] bg-white/40" />
+            <p className="text-lg font-normal tracking-wide text-zinc-300">
+              Stop the scroll. Start the growth.
+            </p>
+          </div>
+        </div>
 
-      {/* Nuclear Pulse Effect */}
-      <motion.div
-        className="absolute inset-0 bg-[#FF4D4D]/5 rounded-full"
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.1, 0.2, 0.1],
-        }}
-        transition={{
-          duration: 3,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      />
+        {/* Image Placeholder Section */}
+        <div className="mb-40">
+          <div className="bg-zinc-900 rounded-3xl h-96 flex items-center justify-center border border-zinc-800">
+            <p className="text-zinc-500 font-light">Aesthetic Image Space</p>
+          </div>
+        </div>
 
-      {/* Header Section */}
-      <div className="text-center max-w-4xl mx-auto relative z-10 mb-32">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-[5rem] font-black font-NeueMontreal leading-tight tracking-tight mb-12"
-        >
-          <motion.span
-            className="text-[#FF4D4D] inline-block"
-            animate={{
-              scale: [1, 1.05, 1],
-              textShadow: [
-                "0 0 0px rgba(255, 77, 77, 0)",
-                "0 0 20px rgba(255, 77, 77, 0.5)",
-                "0 0 0px rgba(255, 77, 77, 0)"
-              ]
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          >
-            Let's Nuke
-          </motion.span> Your Brand's
-          <motion.span
-            className="text-[#4ECDC4] inline-block"
-            animate={{
-              scale: [1, 1.05, 1],
-              textShadow: [
-                "0 0 0px rgba(78, 205, 196, 0)",
-                "0 0 20px rgba(78, 205, 196, 0.5)",
-                "0 0 0px rgba(78, 205, 196, 0)"
-              ]
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 0.5
-            }}
-          >
-            Impact
-          </motion.span> Zone
-          <br />
-          <span className="text-white">Detonating Success</span>
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-gray-300 text-xl font-light max-w-2xl mx-auto leading-relaxed"
-        >
-          We're not just another marketing squad. We're the strategic force that
-          makes your brand explode in the digital space. Time to go nuclear! 💥
-        </motion.p>
-      </div>
-
-
-
-      {/* Main Content */}
-      <div className="w-full max-w-6xl mx-auto relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24">
-          {/* Left Section */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="space-y-12"
-          >
-            <div className="relative" style={{ width: '600px', height: '400px' }}>
-              <video
-                src="/nuke.mp4"
-
-                autoPlay
-                loop
-                muted
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-              {/* Nuclear Glow Effect */}
-              <motion.div
-                className="absolute inset-0 bg-[#FF4D4D]/10"
-                animate={{
-                  opacity: [0.1, 0.2, 0.1],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              />
+        {/* Content Grid */}
+        <div className="grid lg:grid-cols-2 gap-20 mb-40">
+          {/* Left Column */}
+          <div className="space-y-10">
+            <div className="border border-zinc-700 rounded-2xl p-10">
+              <h2 className="text-3xl md:text-4xl font-normal mb-8 leading-relaxed">
+                Social media isn't just posting—
+                <span className="block text-zinc-400 font-light mt-2">
+                  it's about standing out.
+                </span>
+              </h2>
+              
+              <p className="text-zinc-300 text-lg leading-relaxed font-light">
+                A weak presence means missed opportunities. We create content that 
+                turns scrollers into followers and followers into loyal customers.
+              </p>
             </div>
-          </motion.div>
+            
+            <button className="bg-white text-black px-10 py-4 rounded-full font-normal tracking-wide hover:bg-zinc-200 transition-colors duration-300">
+              Let's Create →
+            </button>
+          </div>
 
-          {/* Right Section */}
-          <div className="space-y-16">
-            {/* Strategy Points */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="space-y-12"
-            >
-              {/* Strategy Point 1 */}
-              <motion.div
-                className="flex items-start gap-8"
-                whileHover={{ scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <motion.div
-                  animate={{
-                    rotate: [0, 360],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "linear"
-                  }}
-                >
-                  <Star className="text-[#FF4D4D]" size={40} strokeWidth={2.5} />
-                </motion.div>
-                <div>
-                  <h4 className="text-3xl font-bold mb-6 text-[#FF4D4D]">Nuclear-Grade Strategy</h4>
-                  <p className="text-gray-300 text-lg leading-relaxed">
-                    From explosive social media content to full-scale marketing campaigns,
-                    we're all about maximum impact. Our squad combines creative firepower
-                    with data precision to make your brand detonate in the market.
-                  </p>
-                </div>
-              </motion.div>
-
-              {/* Strategy Point 2 */}
-              <motion.div
-                className="flex items-start gap-8"
-                whileHover={{ scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <motion.div
-                  animate={{
-                    rotate: [0, 360],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "linear",
-                    delay: 0.5
-                  }}
-                >
-                  <Star className="text-[#4ECDC4]" size={40} strokeWidth={2.5} />
-                </motion.div>
-                <div>
-                  <h4 className="text-3xl font-bold mb-6 text-[#4ECDC4]">Chain Reaction Success</h4>
-                  <p className="text-gray-300 text-lg leading-relaxed">
-                    We're not just another agency - we're your brand's power source.
-                    We trigger trends, track engagement metrics, and keep the momentum
-                    building. Our mission? Make your brand the center of attention.
-                  </p>
-                </div>
-              </motion.div>
-            </motion.div>
-
-
-
-            {/* Social Links */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="pt-8 pb-10 border-t border-white/10"
-            >
-              <h1 className="text-2xl font-bold text-white font-NeueMontreal mb-8">
-                Ready to Launch Your Brand?
-              </h1>
-              <div className="flex gap-8">
-                {socialLinks.map((item) => (
-                  <motion.a
-                    key={item.id}
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex items-center gap-3 text-lg text-gray-400 hover:text-[#4ECDC4] transition-all duration-300"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    {item.icon}
-                    <span>{item.title}</span>
-                  </motion.a>
-                ))}
+          {/* Right Column with Image Space */}
+          <div className="space-y-10">
+            {/* Image Placeholder */}
+            <div className="bg-zinc-900 rounded-2xl h-64 flex items-center justify-center border border-zinc-800">
+              <p className="text-zinc-500 font-light">Creative Image Space</p>
+            </div>
+            
+            <div className="border border-zinc-700 rounded-2xl p-10">
+              <h3 className="text-2xl font-normal mb-6">
+                Nuke is a winning formula
+              </h3>
+              
+              <p className="text-zinc-300 text-lg leading-relaxed font-light mb-8">
+                Your brand deserves a strategy that pulls in leads like a magnet. 
+                With viral-worthy content and a brand identity that sticks.
+              </p>
+              
+              <div className="flex items-center gap-4 text-sm">
+                <span className="text-zinc-400 font-normal">Meet the team</span>
+                <div className="w-6 h-[1px] bg-zinc-600" />
+                <span className="text-white font-medium">5 Masterminds</span>
               </div>
-            </motion.div>
+            </div>
+          </div>
+        </div>
+
+        {/* Team Section */}
+        <div className="mb-40">
+          <div className="flex items-center justify-between mb-16">
+            <div>
+              <h2 className="text-5xl md:text-6xl font-light mb-4">The Masterminds</h2>
+              <div className="w-20 h-[1px] bg-white/40" />
+            </div>
+            <button className="text-zinc-400 hover:text-white transition-colors duration-300 font-normal rounded-full border border-zinc-600 hover:border-white px-6 py-2">
+              View All →
+            </button>
+          </div>
+
+          {/* Image Space for Team */}
+          <div className="bg-zinc-900 rounded-3xl h-80 flex items-center justify-center border border-zinc-800 mb-12">
+            <p className="text-zinc-500 font-light">Team Photo / Aesthetic Image</p>
+          </div>
+
+          {/* Team Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+            {Array.from({ length: 5 }).map((_, index) => (
+              <div
+                key={index}
+                className="group aspect-square border border-zinc-700 hover:border-white transition-all duration-300 rounded-xl"
+              >
+                <div className="w-full h-full flex items-center justify-center relative">
+                  <div className="w-16 h-16 border border-zinc-600 group-hover:border-black rounded-full flex items-center justify-center">
+                    <span className="text-white group-hover:text-black text-lg font-normal">
+                      {String.fromCharCode(65 + index)}
+                    </span>
+                  </div>
+                  
+                  {/* Hover overlay */}
+                  <div className="absolute inset-0 bg-white/95 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end rounded-xl">
+                    <div className="p-4 w-full">
+                      <h3 className="text-black text-sm font-normal">Creative {index + 1}</h3>
+                      <p className="text-zinc-600 text-xs font-light">Mastermind</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Stats with Image Space */}
+        <div className="grid lg:grid-cols-2 gap-16 mb-32">
+          {/* Stats */}
+          <div className="border border-zinc-700 rounded-3xl p-12">
+            <div className="grid grid-cols-1 gap-8">
+              {[
+                { number: "500K+", label: "Followers Generated" },
+                { number: "50+", label: "Brands Transformed" },
+                { number: "2M+", label: "Viral Views" }
+              ].map((stat, index) => (
+                <div key={index} className="text-center relative pb-6 border-b border-zinc-800 last:border-b-0">
+                  <div className="text-4xl md:text-5xl font-light mb-2">
+                    {stat.number}
+                  </div>
+                  <div className="text-zinc-400 text-sm font-normal">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          {/* Image Space */}
+          <div className="bg-zinc-900 rounded-3xl flex items-center justify-center border border-zinc-800">
+            <p className="text-zinc-500 font-light">Results / Portfolio Image</p>
           </div>
         </div>
       </div>
-      <div>
-        <LogoCloud />
-        
-        <StyledSection />
-       
+
+      {/* Logo Cloud Section - UNCHANGED */}
+      <div className="bg-black">
+        <MinimalLogoCloud />
       </div>
 
-   
-
-    </section>
+      {/* CTA Section */}
+      <div className="bg-black text-white py-32 px-6">
+        <div className="max-w-5xl mx-auto">
+          {/* Image Space for CTA */}
+          <div className="bg-zinc-900 rounded-3xl h-96 flex items-center justify-center border border-zinc-800 mb-16">
+            <img src="/cta.webp" alt="CTA Image" className="w-full h-full object-cover" />
+          </div>
+          
+          <div className="text-center">
+            <h2 className="text-6xl md:text-7xl font-light mb-8 leading-tight">
+              Ready to go
+              <span className="block text-zinc-400 font-light">
+                viral?
+              </span>
+            </h2>
+            
+            <p className="text-xl mb-16 text-zinc-300 font-light max-w-2xl mx-auto">
+              Let's create content that stops the scroll—starting today.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <button className="bg-white text-black px-12 py-4 rounded-full font-normal tracking-wide hover:bg-zinc-200 transition-colors duration-300">
+                Book A Call
+              </button>
+              
+              <button className="border border-white text-white px-12 py-4 rounded-full font-normal tracking-wide hover:bg-white hover:text-black transition-all duration-300">
+                View Our Work
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }

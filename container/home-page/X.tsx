@@ -101,7 +101,7 @@ const services = [
   {
     id: 8,
     number: "08",
-    title: "Brand Identity & Design",
+    title: "Brand Identity and Designing",
     description: "Visual excellence, memorable impact",
     icon: Palette,
     highlights: [
@@ -179,15 +179,15 @@ export default function ServicesPage() {
     offset: ["start start", "end start"]
   });
   
-  // Simplified transform calculations
-  const x = useTransform(scrollYProgress, [0, 0.85], ["0%", `-${(services.length - 1) * 100}%`]);
-  const progressWidth = useTransform(scrollYProgress, [0, 0.85], ["0%", "100%"]);
+  // Balanced speed - not too slow, not too fast
+  const x = useTransform(scrollYProgress, [0, 0.92], ["0%", `-${(services.length - 1) * 100}%`]);  
+  const progressWidth = useTransform(scrollYProgress, [0, 0.92], ["0%", "100%"]);
   
   return (
     <section 
       ref={targetRef} 
       className="relative bg-black"
-      style={{ height: `${1000}vh` }}
+      style={{ height: `${2000}vh` }}
     >
       {/* Progress bar */}
       <div className="sticky top-6 left-0 w-full z-50 px-12">

@@ -17,13 +17,10 @@ declare global {
 export default function Navbar() {
   const [hidden, setHidden] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [showStartPrompt, setShowStartPrompt] = useState(true);
-  const [animationState, setAnimationState] = useState("initial");
   const [audioContext, setAudioContext] = useState<AudioContext | null>(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [currentTime, setCurrentTime] = useState(new Date());
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const boomSoundRef = useRef<HTMLAudioElement | null>(null);
   const { scrollY } = useScroll();
 
   // Initialize audio context
@@ -58,61 +55,6 @@ export default function Navbar() {
       setHidden(false);
     }
   });
-
-  const startExperience = async () => {
-    try {
-      if (audioContext && audioContext.state === 'suspended') {
-        await audioContext.resume();
-      }
-
-      if (boomSoundRef.current) {
-        try {
-          await boomSoundRef.current.play();
-        } catch (error) {
-          console.warn("Boom sound playback failed:", error);
-        }
-      }
-      
-      setAnimationState("explosion");
-      
-      const audio = audioRef.current;
-      if (audio) {
-        audio.volume = 0;
-        
-        try {
-          await audio.play();
-          
-          const fadeIn = setInterval(() => {
-            if (audio.volume < 0.5) {
-              audio.volume += 0.1;
-            } else {
-              clearInterval(fadeIn);
-            }
-          }, 100);
-          
-          setIsPlaying(true);
-        } catch (error) {
-          console.warn("Background music playback failed:", error);
-        }
-      }
-      
-      setTimeout(() => {
-        setAnimationState("complete");
-        setTimeout(() => {
-          setShowStartPrompt(false);
-        }, 500);
-      }, 2000);
-    } catch (error) {
-      console.error("Error during experience start:", error);
-      setAnimationState("explosion");
-      setTimeout(() => {
-        setAnimationState("complete");
-        setTimeout(() => {
-          setShowStartPrompt(false);
-        }, 500);
-      }, 2000);
-    }
-  };
 
   const toggleAudio = async () => {
     try {
@@ -149,162 +91,6 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Creative Entry Screen */}
-      {showStartPrompt && (
-        <motion.div 
-          initial={{ opacity: 1 }}
-          animate={{ opacity: animationState === "complete" ? 0 : 1 }}
-          transition={{ duration: 0.8 }}
-          className="fixed inset-0 bg-black z-[100] flex items-center justify-center overflow-hidden"
-        >
-          {/* Geometric background pattern */}
-          <div className="absolute inset-0">
-            {[...Array(20)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="absolute border border-white/5"
-                style={{
-                  width: Math.random() * 200 + 50,
-                  height: Math.random() * 200 + 50,
-                  left: Math.random() * 100 + "%",
-                  top: Math.random() * 100 + "%",
-                }}
-                animate={{
-                  rotate: [0, 360],
-                  scale: [1, 1.2, 1],
-                  opacity: [0.1, 0.3, 0.1]
-                }}
-                transition={{
-                  duration: Math.random() * 20 + 10,
-                  repeat: Infinity,
-                  ease: "linear"
-                }}
-              />
-            ))}
-          </div>
-
-          {animationState === "initial" && (
-            <motion.div className="text-center relative z-10">
-              {/* Animated lines around title */}
-              <div className="relative">
-                <motion.div 
-                  className="absolute -top-8 left-1/2 w-32 h-px bg-white"
-                  initial={{ scaleX: 0, x: "-50%" }}
-                  animate={{ scaleX: 1 }}
-                  transition={{ duration: 1, delay: 0.5 }}
-                />
-                <motion.div 
-                  className="absolute -bottom-8 left-1/2 w-32 h-px bg-white"
-                  initial={{ scaleX: 0, x: "-50%" }}
-                  animate={{ scaleX: 1 }}
-                  transition={{ duration: 1, delay: 0.7 }}
-                />
-                
-                <motion.h1 
-                  className="text-6xl font-thin text-white mb-20 tracking-[0.3em] relative"
-                  initial={{ opacity: 0, letterSpacing: "1em" }}
-                  animate={{ opacity: 1, letterSpacing: "0.3em" }}
-                  transition={{ duration: 1.5 }}
-                >
-                  NUKE
-                  <motion.span 
-                    className="block text-xl font-light mt-2 tracking-[0.5em]"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1, duration: 0.8 }}
-                  >
-                    MARKETING
-                  </motion.span>
-                </motion.h1>
-              </div>
-              
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1.2 }}
-                className="relative group cursor-pointer"
-                onClick={startExperience}
-              >
-                <div className="w-24 h-24 border border-white rounded-full flex items-center justify-center mx-auto relative overflow-hidden group-hover:bg-white transition-colors duration-500">
-                  <motion.div
-                    className="text-white group-hover:text-black transition-colors duration-500"
-                    whileHover={{ scale: 1.1 }}
-                  >
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M8 5v14l11-7z"/>
-                    </svg>
-                  </motion.div>
-                  
-                  {/* Rotating border */}
-                  <motion.div
-                    className="absolute inset-0 border-t-2 border-white rounded-full"
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                  />
-                </div>
-                <p className="text-white text-xs tracking-widest mt-4 opacity-70">LAUNCH EXPERIENCE</p>
-              </motion.div>
-            </motion.div>
-          )}
-          
-          {animationState === "explosion" && (
-            <motion.div 
-              className="flex items-center justify-center"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-            >
-              <motion.div
-                initial={{ scale: 0.1 }}
-                animate={{ 
-                  scale: [0.1, 2, 3], 
-                  opacity: [1, 0.7, 0],
-                  rotate: [0, 180, 360]
-                }}
-                transition={{ 
-                  duration: 2, 
-                  ease: "easeInOut", 
-                  times: [0, 0.6, 1] 
-                }}
-                className="relative"
-              >
-                {/* Multiple expanding circles */}
-                {[...Array(3)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    className="absolute inset-0 border border-white rounded-full"
-                    animate={{
-                      scale: [1, 3 + i],
-                      opacity: [1, 0]
-                    }}
-                    transition={{
-                      duration: 2,
-                      delay: i * 0.2,
-                      ease: "easeOut"
-                    }}
-                    style={{
-                      width: 100 + i * 20,
-                      height: 100 + i * 20,
-                      left: -(i * 10),
-                      top: -(i * 10)
-                    }}
-                  />
-                ))}
-                
-                <div className="w-24 h-24 flex items-center justify-center">
-                  <Image
-                    src="/logo.svg"
-                    alt="Logo"
-                    width={60}
-                    height={60}
-                    priority
-                  />
-                </div>
-              </motion.div>
-            </motion.div>
-          )}
-        </motion.div>
-      )}
-      
       {/* Creative Navbar */}
       <motion.nav
         variants={navVariants}
@@ -492,7 +278,6 @@ export default function Navbar() {
       
       {/* Audio elements */}
       <audio ref={audioRef} src="/loop.mp3" loop />
-     
       
       <MobileNav />
     </>

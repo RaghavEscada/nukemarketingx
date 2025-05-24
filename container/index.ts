@@ -8,7 +8,7 @@ export { default as VideoHome } from './home-page/Video';
 export {default as X} from './home-page/X';
 
 // services page
-export { default as Heroservices } from "./services-page/Hero";
+
 export { default as Process } from "./services-page/Process";
 
 

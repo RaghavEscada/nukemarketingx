@@ -4,14 +4,16 @@ import { TextHoverEffect } from "@/components/ui/text-hover-effect";
 import { WavyBackground } from "@/components/ui/wavy-background";
 import { LampContainer } from "@/components/ui/lamp";
 import { MacbookScroll } from "@/components/ui/macbookscroll";
+import { Timeline } from "@/components/ui/timeline";
+
+
+
 
 
 
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { motion, useScroll, useTransform } from "motion/react";
-
+import { motion } from "motion/react";
 
 export function AnimatedTestimonialsDemo() {
   const testimonials = [
@@ -143,9 +145,9 @@ export function LampDemoCraft() {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-[150px] font-medium tracking-tight text-black md:text-7xl"
+        className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-[150px] font-medium tracking-tight text-white md:text-7xl"
       >
-        WORKS<br />
+        Portfolio<br />
       </motion.h1>
       <p>scroll to explore</p>
     </LampContainer>
@@ -163,9 +165,9 @@ export function LampDemoServ() {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-[150px] font-medium tracking-tight text-black md:text-7xl"
+        className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-[150px] font-medium tracking-tight text-white md:text-7xl"
       >
-        TASKS <br />
+        Services<br />
       </motion.h1>
       <p>scroll to explore</p>
     </LampContainer>
@@ -183,7 +185,7 @@ export function LampDemoTeam() {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-[150px] font-medium tracking-tight text-black md:text-7xl"
+        className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-[150px] font-medium tracking-tight text-white md:text-7xl"
       >
         TEAM <br />
       </motion.h1>
