@@ -121,8 +121,8 @@ export default function About() {
 
         {/* Image Placeholder Section */}
         <div className="mb-40">
-          <div className="bg-zinc-900 rounded-3xl h-96 flex items-center justify-center border border-zinc-800">
-            <p className="text-zinc-500 font-light">Aesthetic Image Space</p>
+          <div className="bg-zinc-900 rounded-3xl h-[52rem] flex items-center justify-center border border-zinc-800">
+             <img src="/m1.webp" alt="CTA Image" className="w-full h-full object-cover" />
           </div>
         </div>
 
@@ -152,8 +152,8 @@ export default function About() {
           {/* Right Column with Image Space */}
           <div className="space-y-10">
             {/* Image Placeholder */}
-            <div className="bg-zinc-900 rounded-2xl h-64 flex items-center justify-center border border-zinc-800">
-              <p className="text-zinc-500 font-light">Creative Image Space</p>
+            <div className="bg-zinc-900 rounded-lg h-80 flex items-center justify-center border border-zinc-800">
+            <img src="/a1.webp" alt="CTA Image" className="w-full h-full object-cover" />
             </div>
             
             <div className="border border-zinc-700 rounded-2xl p-10">
@@ -188,35 +188,12 @@ export default function About() {
           </div>
 
           {/* Image Space for Team */}
-          <div className="bg-zinc-900 rounded-3xl h-80 flex items-center justify-center border border-zinc-800 mb-12">
-            <p className="text-zinc-500 font-light">Team Photo / Aesthetic Image</p>
+          <div className="bg-zinc-900 rounded-3xl h-[64rem] flex items-center justify-center border border-zinc-800 mb-12">
+          <img src="/g.webp" alt="CTA Image" className="w-full h-full object-cover" />
           </div>
 
           {/* Team Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
-            {Array.from({ length: 5 }).map((_, index) => (
-              <div
-                key={index}
-                className="group aspect-square border border-zinc-700 hover:border-white transition-all duration-300 rounded-xl"
-              >
-                <div className="w-full h-full flex items-center justify-center relative">
-                  <div className="w-16 h-16 border border-zinc-600 group-hover:border-black rounded-full flex items-center justify-center">
-                    <span className="text-white group-hover:text-black text-lg font-normal">
-                      {String.fromCharCode(65 + index)}
-                    </span>
-                  </div>
-                  
-                  {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-white/95 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end rounded-xl">
-                    <div className="p-4 w-full">
-                      <h3 className="text-black text-sm font-normal">Creative {index + 1}</h3>
-                      <p className="text-zinc-600 text-xs font-light">Mastermind</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+         
         </div>
 
         {/* Stats with Image Space */}
@@ -225,8 +202,8 @@ export default function About() {
           <div className="border border-zinc-700 rounded-3xl p-12">
             <div className="grid grid-cols-1 gap-8">
               {[
-                { number: "500K+", label: "Followers Generated" },
-                { number: "50+", label: "Brands Transformed" },
+                { number: "500K+", label: "Impressions Generated" },
+                { number: "< 3 Months ", label: "in Time" },
                 { number: "2M+", label: "Viral Views" }
               ].map((stat, index) => (
                 <div key={index} className="text-center relative pb-6 border-b border-zinc-800 last:border-b-0">

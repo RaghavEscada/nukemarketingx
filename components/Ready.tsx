@@ -22,7 +22,7 @@ export default function Ready() {
 			ref={container}>
 			<div className="w-full h-full flex justify-center gap-[50px] items-center flex-col">
 				<div className="flex flex-col gap-[10px]">
-					<h1 className="text-[15px] font-NeueMontreal leading-[230px] lg:text-[220px] lg:leading-[170px] md:text-[180px] md:leading-[140px] sm:text-[120px] sm:leading-[90px] xm:text-[80px] xm:leading-[60px] tracking-[-2.5px] text-center font-bold text-white uppercase pointer-events-none">
+					<h1 className="text-[15px] font-NeueMontreal leading-[230px] lg:text-[170px] lg:leading-[170px] md:text-[180px] md:leading-[140px] sm:text-[120px] sm:leading-[90px] xm:text-[80px] xm:leading-[60px] tracking-[-2.5px] text-center font-bold text-white uppercase pointer-events-none">
 						<TextMask>{phrase}</TextMask>
 					</h1>
 				</div>

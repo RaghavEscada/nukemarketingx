@@ -71,23 +71,25 @@ export const footernavbarItems = [
       title: "Our work",
       href: "nuke-works",
    },
+ 
    {
-      id: 4,
-      title: "About us",
+      id: 5,
+      title: "Team",
       href: "nuke-team",
    },
    {
-      id: 5,
-      title: "Insights",
-      href: "insights",
-   },
-   {
       id: 6,
+      title: "About Us",
+      href: "about-us",
+   },
+ 
+   {
+      id: 7,
       title: "Contact us",
       href: "contact",
    },
    {
-      id: 7,
+      id: 8,
       title: "Playground",
       href: "playground",
    },

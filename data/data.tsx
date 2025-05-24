@@ -4,7 +4,7 @@ import { TextHoverEffect } from "@/components/ui/text-hover-effect";
 import { WavyBackground } from "@/components/ui/wavy-background";
 import { LampContainer } from "@/components/ui/lamp";
 import { MacbookScroll } from "@/components/ui/macbookscroll";
-import { Timeline } from "@/components/ui/timeline";
+
 
 
 

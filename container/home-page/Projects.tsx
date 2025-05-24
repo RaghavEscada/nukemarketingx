@@ -1,6 +1,6 @@
 
 import { Heading, ProjectCard, RoundButton, Tags } from "@/components";
-import { FeaturesSectionDemo } from "@/components/ui/bentogrid";
+
 
 
 export default function Projects() {
@@ -29,11 +29,7 @@ export default function Projects() {
 				</div>
 			</div>
 
-			{/* Separate FeaturesSectionDemo */}
-			<div className="w-full mt-16">
-				<FeaturesSectionDemo />
-			</div>
-
+		
 		
 			
 		</section>
