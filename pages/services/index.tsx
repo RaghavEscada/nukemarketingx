@@ -67,6 +67,21 @@ const timelineData = [
 ];
 
 export default function Services() {
+
+  useEffect(() => {
+    // If you still want to manually initialize Locomotive Scroll
+    // (though using LocomotiveScrollProvider is recommended)
+    (async () => {
+      const LocomotiveScroll = (await import("locomotive-scroll")).default;
+      const locomotiveScroll = new LocomotiveScroll({
+       
+      });
+      // Optionally, you can destroy the instance when the component unmounts
+      return () => {
+        locomotiveScroll.destroy();
+      };
+    })();
+  }, []);
   return (
     <Curve backgroundColor={"#f1f1f1"}>
       <LampDemoServ />

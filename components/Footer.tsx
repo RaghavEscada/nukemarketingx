@@ -111,13 +111,13 @@ export default function Footer() {
 				</div>
 			</div>
 			<div className="w-full pt-[40px] pb-[30px] flex justify-between sm:flex-col xm:flex-col sm:gap-[20px] xm:gap-[20px]">
-				<div className="w-1/2 sm:w-full xm:w-full">
+				<div className="w-auto bg-white rounded-lg p-4 shadow-sm">
 					<Link href={"/"}>
 						<Image
-							src="/nuke.png"
+							src="/logo.svg"
 							alt="nuke logo"
-							width={250}
-							height={250}
+							width={120}
+							height={120}
 						/>
 					</Link>
 				</div>
